@@ -3,6 +3,8 @@
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use Slowlyo\OwlAdmin\Controllers;
+use App\Admin\Controllers\HomeController;
+use App\Admin\Controllers\SettingController;
 
 Route::group([
     'domain'     => config('admin.route.domain'),
@@ -10,11 +12,14 @@ Route::group([
     'middleware' => config('admin.route.middleware'),
 ], function (Router $router) {
 
-    $router->resource('dashboard', \App\Admin\Controllers\HomeController::class);
+    $router->resource('dashboard/index', HomeController::class);
 
-    $router->resource('setting/settings', \App\Admin\Controllers\SettingController::class);
+    $router->resource('dashboard/product', SettingController::class);
+    $router->resource('user/level', HomeController::class);
 
-    
+    $router->resource('setting/settings', SettingController::class);
+
+    // 重写权限路由
     $router->group(['prefix' => 'setting'], function (\Illuminate\Routing\Router $router) {
         $router->get('/', [Controllers\AdminUserController::class, 'index']);
         // 管理员

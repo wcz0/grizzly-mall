@@ -17,23 +17,42 @@ use Slowlyo\OwlAdmin\Renderers\Alert;
 
 class HomeController extends AdminController
 {
+    // public function index()
+    // {
+    //     $page = $this->basePage()->body([
+    //         Alert::make()->showIcon(true)->body("此处内容仅供演示, 设置项无实际意义，实际开发中请根据实际情况进行修改。"),
+    //         $this->form(),
+    //     ]);
+
+    //     return $this->response()->success($page);
+        
+    //     $page = $this->basePage()->css($this->css())->body([
+    //         Grid::make()->columns([
+    //             $this->frameworkInfo()->md(5),
+    //             Flex::make()->items([
+    //                 $this->pieChart(),
+    //                 $this->cube(),
+    //             ]),
+    //         ]),
+    //         Grid::make()->columns([
+    //             $this->lineChart()->md(8),
+    //             Flex::make()->className('h-full')->items([
+    //                 $this->clock(),
+    //                 $this->giteeWidget(),
+    //             ])->direction('column'),
+    //         ]),
+    //     ]);
+
+    //     return $this->response()->success($page);
+    // }
+    
+    
+
     public function index()
     {
-        $page = $this->basePage()->css($this->css())->body([
-            Grid::make()->columns([
-                $this->frameworkInfo()->md(5),
-                Flex::make()->items([
-                    $this->pieChart(),
-                    $this->cube(),
-                ]),
-            ]),
-            Grid::make()->columns([
-                $this->lineChart()->md(8),
-                Flex::make()->className('h-full')->items([
-                    $this->clock(),
-                    $this->giteeWidget(),
-                ])->direction('column'),
-            ]),
+        $page = $this->basePage()->body([
+            Alert::make()->showIcon(true)->body("此处内容仅供演示, 设置项无实际意义，实际开发中请根据实际情况进行修改。"),
+            $this->form(),
         ]);
 
         return $this->response()->success($page);

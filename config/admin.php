@@ -2,7 +2,7 @@
 
 return [
     // 应用名称
-    'name'           => 'Owl Admin',
+    'name'           => 'Grizzly Mall',
 
     // 应用 logo
     'logo'           => '/admin/logo.png',
@@ -89,6 +89,6 @@ return [
          */
         'keep_alive_exclude' => [],
         // 底部信息
-        'footer'             => '© 2023 <a href="https://gitee.com/slowlyo/owl-admin" target="_blank">Owl Admin</a>',
+        'footer'             => '© 2023 <a href="https://github.com/wcz0/grizzly-mall" target="_blank">Grizzly Mall</a>',
     ],
 ];
