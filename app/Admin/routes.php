@@ -1,5 +1,6 @@
 <?php
 
+use App\Admin\Controllers\AdminController;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use Slowlyo\OwlAdmin\Controllers;
@@ -17,13 +18,11 @@ Route::group([
     $router->resource('dashboard/product', SettingController::class);
     $router->resource('user/level', HomeController::class);
 
-    $router->resource('setting/settings', SettingController::class);
-
     // 重写权限路由
     $router->group(['prefix' => 'setting'], function (\Illuminate\Routing\Router $router) {
         $router->get('/', [Controllers\AdminUserController::class, 'index']);
         // 管理员
-        $router->resource('admin/users', Controllers\AdminUserController::class);
+        $router->resource('admin/users', AdminController::class);
         // 菜单
         $router->resource('admin/menus', Controllers\AdminMenuController::class);
         // 快速编辑

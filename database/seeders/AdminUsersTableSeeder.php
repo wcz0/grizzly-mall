@@ -29,6 +29,13 @@ class AdminUsersTableSeeder extends Seeder
                 'remember_token' => NULL,
                 'updated_at' => '2023-04-17 09:14:56',
                 'username' => 'admin',
+                'last_ip' => '',
+                'last_time' => '2023-04-17 09:14:56',
+                'login_count' => 0,
+                'level' => 0,
+                'state' => 1,
+                'division_id' => 0,
+                'deleted_at' => NULL,
             ),
             1 => 
             array (
@@ -40,6 +47,13 @@ class AdminUsersTableSeeder extends Seeder
                 'remember_token' => NULL,
                 'updated_at' => '2023-04-21 00:35:11',
                 'username' => 'user',
+                'last_ip' => '',
+                'last_time' => '2023-04-17 09:14:56',
+                'login_count' => 0,
+                'level' => 0,
+                'state' => 1,
+                'division_id' => 0,
+                'deleted_at' => NULL,
             ),
             2 => 
             array (
@@ -51,6 +65,13 @@ class AdminUsersTableSeeder extends Seeder
                 'remember_token' => NULL,
                 'updated_at' => '2023-04-21 00:35:29',
                 'username' => 'manager',
+                'last_ip' => '',
+                'last_time' => '2023-04-17 09:14:56',
+                'login_count' => 0,
+                'level' => 0,
+                'state' => 1,
+                'division_id' => 0,
+                'deleted_at' => NULL,
             ),
         ));
         
