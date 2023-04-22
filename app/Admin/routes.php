@@ -1,6 +1,7 @@
 <?php
 
 use App\Admin\Controllers\AdminController;
+use App\Admin\Controllers\AuthController;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use Slowlyo\OwlAdmin\Controllers;
@@ -12,6 +13,9 @@ Route::group([
     'prefix'     => config('admin.route.prefix'),
     'middleware' => config('admin.route.middleware'),
 ], function (Router $router) {
+
+    $router->post('/login', [AuthController::class, 'login']);
+
 
     $router->resource('dashboard/index', HomeController::class);
 

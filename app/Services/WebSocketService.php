@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\AdminUser;
 use Hhxsv5\LaravelS\Swoole\WebSocketHandlerInterface;
+use Illuminate\Support\Facades\Auth;
 use Swoole\Http\Request;
 use Swoole\Http\Response;
 use Swoole\WebSocket\Frame;

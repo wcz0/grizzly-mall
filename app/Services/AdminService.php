@@ -2,14 +2,12 @@
 
 namespace App\Services;
 
-use App\Models\Admin;
 use App\Models\AdminUser;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 use Slowlyo\OwlAdmin\Services\AdminUserService;
 
-/**
- * @method AdminUser getModel()
- * @method AdminUser|\Illuminate\Database\Query\Builder query()
- */
+
 class AdminService extends AdminUserService
 {
     protected string $modelName = AdminUser::class;
@@ -40,5 +38,19 @@ class AdminService extends AdminUserService
         $total = (clone $query)->count();
 
         return compact('items', 'total');
+    }
+
+    public function getEditDataNew($id) : Model|Collection|Builder|array|null
+    {
+        $adminUser = parent::getEditData($id)
+            ->makeHidden('last_ip')
+            ->makeHidden('last_time')
+            ->makeHidden('login_count')
+            ->makeHidden('deleted_at')
+            ->makeHidden('password');
+
+        $adminUser->load('roles');
+
+        return $adminUser;
     }
 }

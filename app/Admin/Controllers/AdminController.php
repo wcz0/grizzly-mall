@@ -84,6 +84,8 @@ class AdminController extends AdminUserController
                 ->joinValues(false)
                 ->extractValue(true)
                 ->options(AdminRoleService::make()->query()->get(['id', 'name'])),
+            amis('input-text')->name('level')->label('级别'),
+            // todo division_id
             amis('switch')->name('state')->label('状态')->value('${state}'),
         ]);
     }
@@ -98,7 +100,7 @@ class AdminController extends AdminUserController
         $this->isEdit = true;
 
         if ($this->actionOfGetData()) {
-            return $this->response()->success($this->service->getEditData($id));
+            return $this->response()->success($this->service->getEditDataNew($id));
         }
 
         $form = amisMake()
@@ -114,4 +116,5 @@ class AdminController extends AdminUserController
 
         return $this->response()->success($page);
     }
+
 }
