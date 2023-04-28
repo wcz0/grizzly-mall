@@ -3795,16 +3795,16 @@
         },
         {
             "name": "slowlyo/owl-admin",
-            "version": "v2.4.7",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Slowlyo/owl-admin.git",
-                "reference": "de5127cc3d60d6ecf261bc57e893c3c136d89321"
+                "reference": "76ef959a0a20967eb6f20f4abb1e261235951f30"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Slowlyo/owl-admin/zipball/de5127cc3d60d6ecf261bc57e893c3c136d89321",
-                "reference": "de5127cc3d60d6ecf261bc57e893c3c136d89321",
+                "url": "https://api.github.com/repos/Slowlyo/owl-admin/zipball/76ef959a0a20967eb6f20f4abb1e261235951f30",
+                "reference": "76ef959a0a20967eb6f20f4abb1e261235951f30",
                 "shasum": ""
             },
             "require": {
@@ -3850,9 +3850,9 @@
             ],
             "support": {
                 "issues": "https://github.com/Slowlyo/owl-admin/issues",
-                "source": "https://github.com/Slowlyo/owl-admin/tree/v2.4.7"
+                "source": "https://github.com/Slowlyo/owl-admin/tree/v2.5.0"
             },
-            "time": "2023-04-21T02:36:34+00:00"
+            "time": "2023-04-27T08:21:20+00:00"
         },
         {
             "name": "swoole/ide-helper",

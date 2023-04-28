@@ -14,13 +14,11 @@ Route::group([
     'middleware' => config('admin.route.middleware'),
 ], function (Router $router) {
 
-    $router->post('/login', [AuthController::class, 'login']);
+    $router->post('login', [AuthController::class, 'login']);
 
-
-    $router->resource('dashboard/index', HomeController::class);
-
-    $router->resource('dashboard/product', SettingController::class);
-    $router->resource('user/level', HomeController::class);
+    $router->resource('index/index', HomeController::class);
+    $router->resource('index/product', HomeProductController::class);
+    $router->resource('user/manage', UserController::class);
 
     // 重写权限路由
     $router->group(['prefix' => 'setting'], function (\Illuminate\Routing\Router $router) {
