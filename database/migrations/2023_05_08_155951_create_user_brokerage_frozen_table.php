@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('user_brokerage_frozen', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->decimal('price', 8,2);
             $table->unsignedInteger('uill_id');

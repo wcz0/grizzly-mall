@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('store_carts', function (Blueprint $table) {
-            $table->increments('id');
+            $table->unsignedBigInteger('id')->primary();
             $table->unsignedBigInteger('user_id');
             $table->string('type')->index()->default('');
             $table->unsignedBigInteger('product_id')->index();

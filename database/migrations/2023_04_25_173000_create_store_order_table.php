@@ -49,7 +49,7 @@ return new class extends Migration
             $table->string('delivery_type')->default('');
             $table->string('delivery_id')->default('');
             $table->string('fictitious_content')->default('');
-            $table->unsignedInteger('delivery_id');
+            $table->unsignedInteger('delivery_user');
             $table->decimal('gain_integral', 8,2);
             $table->decimal('use_integral', 8,2);
             $table->decimal('back_integral', 8,2);
