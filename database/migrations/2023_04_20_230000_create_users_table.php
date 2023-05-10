@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id')->primary();
             $table->string('username')->default('')->unique();
             $table->string('password')->nullable();
-            $table->string('real_name')->default('');
+            $table->string('name')->default('');
             $table->date('birthday');
             $table->string('card_id')->default('');
             $table->string('mark')->default('');
