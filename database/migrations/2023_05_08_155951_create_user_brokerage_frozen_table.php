@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->decimal('price', 8,2);
             $table->unsignedInteger('uill_id');
-            $table->dateTime('frozen_time');
+            $table->dateTime('frozen_time')->nullable();
             $table->unsignedTinyInteger('state')->default(new \Illuminate\Database\Query\Expression('0'));
             $table->unsignedBigInteger('order_id');
             $table->timestamps();

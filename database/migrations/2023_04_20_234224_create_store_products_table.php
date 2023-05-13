@@ -61,8 +61,8 @@ return new class extends Migration
             $table->string('recommend_llist')->default('');
             $table->unsignedTinyInteger('vip_product')->default(new \Illuminate\Database\Query\Expression('0'));
             $table->unsignedTinyInteger('presale')->default(new \Illuminate\Database\Query\Expression('0'));
-            $table->dateTime('presale_start_time');
-            $table->dateTime('presale_end_time');
+            $table->dateTime('presale_start_time')->nullable();
+            $table->dateTime('presale_end_time')->nullable();
             $table->unsignedInteger('presale_day')->default(new \Illuminate\Database\Query\Expression('1'));
             $table->string('logistics')->default('');
             $table->unsignedTinyInteger('freight');

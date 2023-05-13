@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('user_name')->default('');
             $table->string('user_phone')->default('');
             $table->string('user_address')->default('');
-            $table->text('caer_id');
+            $table->text('cart_id')->nullable();
             $table->decimal('freight_price', 8,2);
             $table->unsignedInteger('total_num');
             $table->decimal('total_price', 8,2);
@@ -31,7 +31,7 @@ return new class extends Migration
             $table->unsignedBigInteger('coupon_id')->index();
             $table->decimal('coupon_price', 8,2);
             $table->unsignedTinyInteger('pay_status')->index();
-            $table->dateTime('pay_time')->index();
+            $table->dateTime('pay_time')->index()->nullable();
             $table->string('pay_type')->index()->default('');
             $table->unsignedTinyInteger('state')->index();
             $table->unsignedTinyInteger('refund_status');
@@ -40,7 +40,7 @@ return new class extends Migration
             $table->string('refund_express_name')->default('');
             $table->string('refund_reason_image')->default('');
             $table->string('refund_reason_explain')->default('');
-            $table->dateTime('refund_time');
+            $table->dateTime('refund_time')->nullable();
             $table->string('refund_reason')->default('');
             $table->string('refund_reject')->default('');
             $table->decimal('refund_price', 8,2);

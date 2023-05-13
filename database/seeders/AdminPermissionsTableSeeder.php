@@ -23,13 +23,13 @@ class AdminPermissionsTableSeeder extends Seeder
             array (
                 'created_at' => NULL,
                 'http_method' => NULL,
-                'http_path' => '["\\/dashboard*"]',
+                'http_path' => '["\\/index*"]',
                 'id' => 1,
                 'name' => '主页',
                 'order' => 0,
                 'parent_id' => 0,
-                'slug' => '27e7f480-8d5d-425a-86dd-d7ded9a9db65',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '4eadfada-2daa-4e31-808b-5aa2bd6d74c6',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             1 => 
             array (
@@ -40,8 +40,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '设置',
                 'order' => 99,
                 'parent_id' => 0,
-                'slug' => 'b11938ea-343a-4f88-9f16-245a397fa4f6',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'a3ce95e0-42ef-4b46-94e4-9736785ab2e6',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             2 => 
             array (
@@ -52,8 +52,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '管理员',
                 'order' => 3,
                 'parent_id' => 87,
-                'slug' => 'dc4eaa91-534a-48de-bb4c-c89426ec1626',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '8d7fc0b9-6797-47f0-9299-31b5a975481c',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             3 => 
             array (
@@ -64,8 +64,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '角色',
                 'order' => 2,
                 'parent_id' => 87,
-                'slug' => '07e2d32e-3995-4b19-992f-19b2cc61f153',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '20bbb00e-e679-4bba-a1c5-1b1d6c12440f',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             4 => 
             array (
@@ -76,8 +76,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '权限',
                 'order' => 1,
                 'parent_id' => 87,
-                'slug' => '39da8b94-8370-4be1-aaa2-1d7e5df84ea2',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'e65559f8-6e10-4a8c-a9e4-24b04de54de4',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             5 => 
             array (
@@ -88,80 +88,80 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '菜单',
                 'order' => 0,
                 'parent_id' => 87,
-                'slug' => '2d6b9064-0d1a-4576-bfd8-5c5ab78077ab',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '5b3a43de-f07c-4118-8b89-ccabc5fc14f9',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             6 => 
             array (
                 'created_at' => '2023-04-20 00:36:46',
                 'http_method' => NULL,
-                'http_path' => '["\\/dashboard\\/index*"]',
+                'http_path' => '["\\/index\\/index*"]',
                 'id' => 8,
                 'name' => '首页',
                 'order' => 0,
                 'parent_id' => 1,
-                'slug' => 'ba533ff8-6325-4396-8a64-b9f5aed730e4',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'e6148536-71f1-4d32-b168-79abac1ad9d8',
+                'updated_at' => '2023-05-11 23:26:47',
             ),
             7 => 
             array (
                 'created_at' => '2023-04-20 00:38:10',
                 'http_method' => NULL,
-                'http_path' => '["\\/dashboard\\/product*"]',
+                'http_path' => '["\\/index\\/product*"]',
                 'id' => 9,
                 'name' => '商品统计',
                 'order' => 1,
                 'parent_id' => 1,
-                'slug' => '461b84aa-d551-484c-b503-f59fd3a8ced6',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'c413eec2-2aa6-428c-94af-d5782ba805b6',
+                'updated_at' => '2023-05-11 23:26:56',
             ),
             8 => 
             array (
                 'created_at' => '2023-04-20 00:38:36',
                 'http_method' => NULL,
-                'http_path' => '["\\/dashboard\\/user*"]',
+                'http_path' => '["\\/index\\/user*"]',
                 'id' => 10,
                 'name' => '用户统计',
                 'order' => 2,
                 'parent_id' => 1,
-                'slug' => '67ac9e6d-8c5b-4b1f-97d7-0e7c3a6dad7d',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '87665c8a-52ad-4769-8d41-aba5be577554',
+                'updated_at' => '2023-05-11 23:27:04',
             ),
             9 => 
             array (
                 'created_at' => '2023-04-20 00:39:15',
                 'http_method' => NULL,
-                'http_path' => '["\\/dashboard\\/trade*"]',
+                'http_path' => '["\\/index\\/trade*"]',
                 'id' => 11,
                 'name' => '交易统计',
                 'order' => 3,
                 'parent_id' => 1,
-                'slug' => '194154b7-faa8-4e31-9908-7be4094146f5',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '1a755a58-9f9e-4b1a-ba27-b8d819fa6964',
+                'updated_at' => '2023-05-11 23:27:22',
             ),
             10 => 
             array (
                 'created_at' => '2023-04-20 00:39:36',
                 'http_method' => NULL,
-                'http_path' => '["\\/dashboard\\/order*"]',
+                'http_path' => '["\\/index\\/order*"]',
                 'id' => 12,
                 'name' => '订单统计',
                 'order' => 4,
                 'parent_id' => 1,
-                'slug' => '19cf4ebf-9e3b-45ea-ba3a-0d6138251526',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'e0e30c6a-3189-4a2b-af80-fa00fc66fbf5',
+                'updated_at' => '2023-05-11 23:27:16',
             ),
             11 => 
             array (
                 'created_at' => '2023-04-20 00:40:06',
                 'http_method' => NULL,
-                'http_path' => '["\\/dashboard\\/balance*"]',
+                'http_path' => '["\\/index\\/balance*"]',
                 'id' => 13,
                 'name' => '余额统计',
                 'order' => 5,
                 'parent_id' => 1,
-                'slug' => 'ba96ca30-aa22-4744-bace-8614bf813823',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '5c526c7f-7509-4e3d-8cfd-7c2cede6fec3',
+                'updated_at' => '2023-05-11 23:27:09',
             ),
             12 => 
             array (
@@ -172,8 +172,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '用户',
                 'order' => 1,
                 'parent_id' => 0,
-                'slug' => 'da2de164-dc79-4fbf-b423-de3901e3b668',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'b5f9d314-174a-44f9-8981-3891164a4647',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             13 => 
             array (
@@ -184,8 +184,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '用户管理',
                 'order' => 0,
                 'parent_id' => 14,
-                'slug' => '33bf15db-5a64-4090-8661-8f651db63103',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '7f704fa5-0d26-4ad0-9c8a-bf50a82ba5d5',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             14 => 
             array (
@@ -196,8 +196,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '订单',
                 'order' => 2,
                 'parent_id' => 0,
-                'slug' => 'd7e1eed3-228c-4ac8-8605-b60f3ba7f039',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '78cf6c90-eeb2-400a-8662-37dd5b45d95d',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             15 => 
             array (
@@ -208,8 +208,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '商品',
                 'order' => 3,
                 'parent_id' => 0,
-                'slug' => '6c9d8643-e4e9-4b86-baf2-1a9599ceab43',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '88de3933-2723-4534-942b-21e3500d73d3',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             16 => 
             array (
@@ -220,8 +220,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '维护',
                 'order' => 100,
                 'parent_id' => 0,
-                'slug' => '78333581-8189-4501-ac24-79619b8efffd',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '49c9e531-82f7-4feb-b5a6-f1ddca4f7022',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             17 => 
             array (
@@ -232,8 +232,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '营销',
                 'order' => 5,
                 'parent_id' => 0,
-                'slug' => 'dff38a30-6477-4e2f-b13a-fdb9e4ba21ea',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '47db7e40-ad7e-47fa-a648-43ebe432a531',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             18 => 
             array (
@@ -244,8 +244,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '分销',
                 'order' => 6,
                 'parent_id' => 0,
-                'slug' => 'daf675ed-7b8d-4953-b9f5-725619e4877f',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '7e5b51a5-5d55-4b9b-bdb4-427d9771776c',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             19 => 
             array (
@@ -256,8 +256,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '客服',
                 'order' => 7,
                 'parent_id' => 0,
-                'slug' => '8085f103-14b8-4db9-8482-d068d1146370',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '2b0ee19e-97da-4b2d-bc6a-0a68763a475e',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             20 => 
             array (
@@ -268,8 +268,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '财务',
                 'order' => 8,
                 'parent_id' => 0,
-                'slug' => '00c487df-6a78-43ca-9a45-a89535f6021a',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '23e457c1-646a-4f13-bda3-fde196b0a786',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             21 => 
             array (
@@ -280,8 +280,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '内容',
                 'order' => 9,
                 'parent_id' => 0,
-                'slug' => 'ca0a7b41-f3d1-4cab-b039-0dec7a8d3d6b',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '953eaad2-1878-4de8-a35d-799a2f2ba98c',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             22 => 
             array (
@@ -292,8 +292,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '装修',
                 'order' => 10,
                 'parent_id' => 0,
-                'slug' => '96ceb2d8-31b1-4e04-8c6a-2d7bcabb8b3e',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '07c73279-521b-4e6e-a9f3-7457ac31e736',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             23 => 
             array (
@@ -304,8 +304,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '应用',
                 'order' => 11,
                 'parent_id' => 0,
-                'slug' => 'a54ea696-fcb1-4e61-b697-dba621b5b3f5',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'bfe549d5-bcc2-4115-aca1-5855bafbcb1c',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             24 => 
             array (
@@ -316,8 +316,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '用户分组',
                 'order' => 1,
                 'parent_id' => 14,
-                'slug' => '7c3d999b-cf83-4a36-bceb-159c608dde43',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'dff204ef-0cfc-42a8-a4d9-e252a0a1329e',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             25 => 
             array (
@@ -328,8 +328,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '用户标签',
                 'order' => 2,
                 'parent_id' => 14,
-                'slug' => '3b7fe9d2-9050-4434-a682-95fde9a89b47',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '573a3d58-6481-4a0d-a66c-078a70cd867c',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             26 => 
             array (
@@ -340,8 +340,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '用户等级',
                 'order' => 0,
                 'parent_id' => 14,
-                'slug' => '4d62a85d-ed5e-4ae1-a597-a4424183faee',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'c1ed188d-765a-4fab-a10b-9b3f9a7fb8aa',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             27 => 
             array (
@@ -352,8 +352,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '订单管理',
                 'order' => 0,
                 'parent_id' => 16,
-                'slug' => 'ed3dea90-db97-4adc-8f41-4e04b2b41cc9',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '7fea43c6-0b24-4145-b2d8-4a8ebcbb5708',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             28 => 
             array (
@@ -364,8 +364,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '售后订单',
                 'order' => 1,
                 'parent_id' => 16,
-                'slug' => 'ec8237a0-2f75-4403-bc3d-a07e7c4d1b1b',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '686d6e10-a164-4733-ba31-f3cbcb80f977',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             29 => 
             array (
@@ -376,8 +376,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '核销订单',
                 'order' => 2,
                 'parent_id' => 16,
-                'slug' => '59c5a36c-8652-45cc-b765-7c2e457b522a',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '4763d91e-baaa-400d-be57-a4c726b843ff',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             30 => 
             array (
@@ -388,8 +388,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '收银订单',
                 'order' => 3,
                 'parent_id' => 16,
-                'slug' => '2c786423-8a92-4e13-93c7-92f1bb560456',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '833cca81-fe30-4f7c-bdfa-f870f7b3f424',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             31 => 
             array (
@@ -400,8 +400,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '商品管理',
                 'order' => 0,
                 'parent_id' => 17,
-                'slug' => '68c33b2a-e421-4ab8-a231-d96448b6b909',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '56dfc700-a070-47a6-8639-9bbc247cdc78',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             32 => 
             array (
@@ -412,8 +412,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '商品分类',
                 'order' => 1,
                 'parent_id' => 17,
-                'slug' => 'a22c5ceb-d27d-45da-ac2e-857e0f2e977e',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '96f5875b-0138-4880-9cce-0bcebeb49609',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             33 => 
             array (
@@ -424,8 +424,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '商品规格',
                 'order' => 2,
                 'parent_id' => 17,
-                'slug' => '704c5510-f869-4985-aa00-353339aa37ee',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '4666c62b-c02e-43ff-9e2a-d09ee34390a6',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             34 => 
             array (
@@ -436,8 +436,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '商品评论',
                 'order' => 3,
                 'parent_id' => 17,
-                'slug' => 'fc484729-a372-4d4e-a926-795de0897f23',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '14555137-267a-443c-830d-ee68f1bc51ec',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             35 => 
             array (
@@ -448,8 +448,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '优惠券',
                 'order' => 0,
                 'parent_id' => 19,
-                'slug' => 'dad6bd3d-9541-41ef-ae92-abddb6a7313a',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '922c10b6-2941-4b6e-846a-4aef2eac40ce',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             36 => 
             array (
@@ -460,8 +460,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '优惠券列表',
                 'order' => 0,
                 'parent_id' => 37,
-                'slug' => '46c60714-efd5-4ab1-b575-d30fe6698895',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '36d89695-2500-48bf-a248-870376178122',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             37 => 
             array (
@@ -472,8 +472,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '用户领取记录',
                 'order' => 0,
                 'parent_id' => 37,
-                'slug' => 'ef47a1f3-3440-44ff-b473-753bd92c6bee',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '7c5132d7-e0b1-45f3-a436-fccf8bc3885e',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             38 => 
             array (
@@ -484,8 +484,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '积分管理',
                 'order' => 1,
                 'parent_id' => 19,
-                'slug' => '05201b39-33ba-4a2a-9619-ee2dd2ee71d9',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '10828ef5-644c-498d-8ccc-0028f23de06a',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             39 => 
             array (
@@ -496,8 +496,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '积分配置',
                 'order' => 0,
                 'parent_id' => 40,
-                'slug' => '4ea79381-4eeb-478b-b50c-1d547215a2d6',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '1414b05a-d16d-466b-bb15-c6eed1e53e72',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             40 => 
             array (
@@ -508,8 +508,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '签到配置',
                 'order' => 1,
                 'parent_id' => 40,
-                'slug' => 'aa7848b9-98e2-4494-b284-5fd67fb06560',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'abd66f6a-bba2-410e-8f95-f60876c025f2',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             41 => 
             array (
@@ -520,8 +520,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '积分商城',
                 'order' => 2,
                 'parent_id' => 40,
-                'slug' => '7bd12f49-b442-4ffd-b790-3b8ec9220da4',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '43059a5e-3c26-4f11-9da9-8cd595e01cb7',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             42 => 
             array (
@@ -532,8 +532,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '积分订单',
                 'order' => 3,
                 'parent_id' => 40,
-                'slug' => '7d313886-355a-43f0-8d01-8be94816f1dc',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'bd1baad6-fa18-4a5f-a908-f3892947377a',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             43 => 
             array (
@@ -544,8 +544,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '抽奖管理',
                 'order' => 2,
                 'parent_id' => 19,
-                'slug' => '0f665eeb-e8a6-4ac1-a1be-8823140710ca',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '7722afa0-9cb0-4edb-9229-97e1b889783a',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             44 => 
             array (
@@ -556,8 +556,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '砍价管理',
                 'order' => 3,
                 'parent_id' => 19,
-                'slug' => 'b1e7c3b5-8334-4794-84a3-431b6329a432',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '3f65f705-82ab-4e8a-bc45-72aa9f06e5d1',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             45 => 
             array (
@@ -568,8 +568,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '砍价商品',
                 'order' => 0,
                 'parent_id' => 46,
-                'slug' => 'a0d628d9-0046-4a1e-a195-337abc1dc383',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '4297ebfd-e886-40ad-8972-f07be7896502',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             46 => 
             array (
@@ -580,8 +580,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '砍价列表',
                 'order' => 1,
                 'parent_id' => 46,
-                'slug' => 'dd0580e7-10ae-4b5e-b4a2-418308f5e3b8',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '2389510a-9fe8-4f70-b4cf-bb7c635b8fb7',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             47 => 
             array (
@@ -592,8 +592,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '拼团管理',
                 'order' => 4,
                 'parent_id' => 19,
-                'slug' => '922c40a7-5927-4ae6-a3f5-bc222437bf0f',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'e1b4f0ff-ef9a-48a3-8c05-af1fc52c1d85',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             48 => 
             array (
@@ -604,8 +604,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '拼团商品',
                 'order' => 0,
                 'parent_id' => 49,
-                'slug' => '5a5d1deb-9875-4a71-9ff4-ebb45af3b911',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '15576f12-1238-4872-a002-6e713231f99d',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             49 => 
             array (
@@ -616,8 +616,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '拼团列表',
                 'order' => 1,
                 'parent_id' => 49,
-                'slug' => '7b686d84-f86f-4611-8f7d-ba4c23d9079f',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'e0104aee-d7cb-4da8-abb8-1ba2f49bdf70',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             50 => 
             array (
@@ -628,8 +628,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '秒杀管理',
                 'order' => 5,
                 'parent_id' => 19,
-                'slug' => '3ae3ba0e-7e38-4fb4-89ba-d9b09d334490',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '914d32cf-d521-43c3-95bb-c43ca4b3c49b',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             51 => 
             array (
@@ -640,8 +640,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '秒杀商品',
                 'order' => 0,
                 'parent_id' => 52,
-                'slug' => 'c6edde3a-e5d9-46bd-af90-60fa7b56624f',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '1ea16f33-30a8-4a79-916a-4cc4b7465257',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             52 => 
             array (
@@ -652,8 +652,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '秒杀配置',
                 'order' => 1,
                 'parent_id' => 52,
-                'slug' => '73895150-871b-401a-ac72-d8e157f51923',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '3f6c66af-0a75-44a8-96a5-7cb75d98156e',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             53 => 
             array (
@@ -664,8 +664,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '付费会员',
                 'order' => 6,
                 'parent_id' => 19,
-                'slug' => 'e76b7ef3-d488-442b-a87d-a34f028cab55',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'e6babe3a-acad-4406-9764-a144659c1949',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             54 => 
             array (
@@ -676,8 +676,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '直播管理',
                 'order' => 7,
                 'parent_id' => 19,
-                'slug' => 'f0ac1525-58ac-4988-a7bd-52aa05141946',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '708dfc4e-4751-4602-8a54-55036dcfca7f',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             55 => 
             array (
@@ -688,8 +688,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '充值配置',
                 'order' => 8,
                 'parent_id' => 19,
-                'slug' => '81a6fbaa-69b7-43ca-8665-920307b7a71f',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '6e859822-2a8a-4bfb-9f10-2d778bbaecb2',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             56 => 
             array (
@@ -700,8 +700,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '渠道码',
                 'order' => 9,
                 'parent_id' => 19,
-                'slug' => '7cda823c-98aa-4f72-86ba-9737d4752e8f',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '62e83789-2bc7-470b-a0d8-534225a1cb29',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             57 => 
             array (
@@ -712,8 +712,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '直播间管理',
                 'order' => 0,
                 'parent_id' => 56,
-                'slug' => 'c8abae86-0a2c-42a5-8928-4337f8f2a981',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'f7bb882e-ab53-42db-a1ab-4411501103d7',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             58 => 
             array (
@@ -724,8 +724,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '直播商品管理',
                 'order' => 1,
                 'parent_id' => 56,
-                'slug' => '2460c952-efd6-4a86-9fd5-f7ee7ef4c8e5',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '8c3798fd-60ae-418c-93b1-d7d96e03a722',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             59 => 
             array (
@@ -736,8 +736,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '主播配置',
                 'order' => 2,
                 'parent_id' => 56,
-                'slug' => 'a2ea9031-8b54-4baa-a236-34342a49ff55',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '958bb731-b9aa-4541-aa33-616a9d96168c',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             60 => 
             array (
@@ -748,8 +748,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '会员类型',
                 'order' => 0,
                 'parent_id' => 55,
-                'slug' => '4a42ea4b-5ccf-42a0-81c6-2fca92ddcb81',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'a4514470-1f46-409e-82f6-6b446ec17001',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             61 => 
             array (
@@ -760,8 +760,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '会员权益',
                 'order' => 1,
                 'parent_id' => 55,
-                'slug' => '6f45a52b-568c-436c-9aa5-54ce28663a5f',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'c8b67cb5-9c4a-4bf1-b5cb-4a11cb403a50',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             62 => 
             array (
@@ -772,8 +772,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '卡密会员',
                 'order' => 2,
                 'parent_id' => 55,
-                'slug' => '389613e2-3070-4fc6-9d8e-34655c8215ff',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '693e8420-45ed-46b2-bc41-3ac3d068afaf',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             63 => 
             array (
@@ -784,8 +784,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '会员记录',
                 'order' => 3,
                 'parent_id' => 55,
-                'slug' => 'd94abfe1-77ac-4d26-bbe8-b1d8010ec80e',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'd5a3059b-bc05-4372-ab7a-00fc48c4c1ca',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             64 => 
             array (
@@ -796,8 +796,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '客服列表',
                 'order' => 0,
                 'parent_id' => 21,
-                'slug' => 'c75857cc-2a0a-41dc-91e5-9f77ed94a589',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'a5fc0c3e-bf8c-4d7d-a47f-843fad29c67e',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             65 => 
             array (
@@ -808,8 +808,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '客服话术',
                 'order' => 1,
                 'parent_id' => 21,
-                'slug' => '3e98ab4a-aa15-4f88-a864-235ef73edf28',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'fee62574-ab5d-4af6-8a7d-8de10bababc6',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             66 => 
             array (
@@ -820,8 +820,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '用户留言',
                 'order' => 2,
                 'parent_id' => 21,
-                'slug' => 'd79f5544-1925-4695-8697-256182a7b4e9',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '54bb6d31-d641-4839-bb83-0c552b0f83ad',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             67 => 
             array (
@@ -832,8 +832,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '文章管理',
                 'order' => 0,
                 'parent_id' => 23,
-                'slug' => '91b09d03-b511-4ca7-a278-333fd07a3944',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'fe8e44dc-2b60-43a7-a1f8-e6c0ed7ee7d2',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             68 => 
             array (
@@ -844,8 +844,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '文章分类',
                 'order' => 1,
                 'parent_id' => 23,
-                'slug' => '6b986907-f511-4f84-ab40-c67be7a2e762',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '9a39a14d-020f-474f-a5bc-63663ed3a1d0',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             69 => 
             array (
@@ -856,8 +856,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '财务操作',
                 'order' => 0,
                 'parent_id' => 22,
-                'slug' => '22e1445e-0cb9-4577-851f-f5785bc655a0',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '2575ad98-c8bd-469e-9dae-66919b2e8743',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             70 => 
             array (
@@ -868,8 +868,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '财务记录',
                 'order' => 1,
                 'parent_id' => 22,
-                'slug' => 'f8f50e25-4ee5-4219-8b95-b488af009792',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '6986481c-3b5c-402e-b08c-febaa96ff377',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             71 => 
             array (
@@ -880,8 +880,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '佣金记录',
                 'order' => 2,
                 'parent_id' => 22,
-                'slug' => '4116fa55-176b-490d-a707-965804461c6d',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'f0685d1e-dcc8-48b3-ae50-3d996fab88bf',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             72 => 
             array (
@@ -892,8 +892,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '余额记录',
                 'order' => 3,
                 'parent_id' => 22,
-                'slug' => '1baf2575-1296-4cce-801c-cbae311e7644',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'b3b4bca9-f91c-4c4e-86bb-c267a9c67bce',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             73 => 
             array (
@@ -904,8 +904,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '提现申请',
                 'order' => 0,
                 'parent_id' => 71,
-                'slug' => '3c595de1-adb8-477e-a510-525ddb6fa278',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '46caf752-a9d7-476c-854a-be6f32892a5d',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             74 => 
             array (
@@ -916,8 +916,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '发票管理',
                 'order' => 1,
                 'parent_id' => 71,
-                'slug' => 'f6007249-af12-4785-91a6-796174db5c8a',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '6d324a52-dc5d-475a-957f-24cc569d0924',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             75 => 
             array (
@@ -928,8 +928,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '充值记录',
                 'order' => 0,
                 'parent_id' => 72,
-                'slug' => '7576efaa-cb7d-4382-ab35-bad7eb9e0133',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '95847b4b-55cd-4395-8a4c-b88959f18640',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             76 => 
             array (
@@ -940,8 +940,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '资金流水',
                 'order' => 1,
                 'parent_id' => 72,
-                'slug' => '0957eaac-957f-4df3-ac1d-d6456564bf9c',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '79bd7d4c-cfa7-4e05-ba77-14b36ea21958',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             77 => 
             array (
@@ -952,8 +952,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '账单记录',
                 'order' => 2,
                 'parent_id' => 72,
-                'slug' => '0acdb51d-69e0-4ffb-92f0-0158e11ee425',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'b77cd349-659e-4dfa-8ba6-d6c72c10c948',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             78 => 
             array (
@@ -964,8 +964,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '系统设置',
                 'order' => 0,
                 'parent_id' => 2,
-                'slug' => 'd424ec26-74c9-448d-8dff-ece75c2fb011',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'd3033772-3633-4f12-9fdb-14f023ce3079',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             79 => 
             array (
@@ -976,8 +976,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '基础配置',
                 'order' => 0,
                 'parent_id' => 80,
-                'slug' => '6498292c-e225-448e-a87a-c73fa6c69800',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => 'd8effd1e-05f5-4479-8673-beee74a197b7',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             80 => 
             array (
@@ -988,8 +988,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '商城',
                 'order' => 1,
                 'parent_id' => 80,
-                'slug' => '281e7a47-07dd-4f19-a731-7e663d4dad21',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '7404bfb0-bbfc-4b40-8199-7d5a6fadb484',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             81 => 
             array (
@@ -1000,8 +1000,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '用户配置',
                 'order' => 2,
                 'parent_id' => 80,
-                'slug' => 'e59bf7b5-e5b8-483f-b8e5-b86fb673d627',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '47c20ee2-45d9-4ad6-b007-04fe73f8b1ad',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             82 => 
             array (
@@ -1012,8 +1012,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '消息管理',
                 'order' => 1,
                 'parent_id' => 2,
-                'slug' => '285e03d5-211d-44d3-b06b-e78e31fbc2c6',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '26fcbfa7-69d7-4e6e-b164-71901cf10bb7',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             83 => 
             array (
@@ -1024,8 +1024,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '通知会员',
                 'order' => 0,
                 'parent_id' => 84,
-                'slug' => 'b6dfe9f5-3f1a-4a8e-951e-4bcfa1d8987a',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '537c1c84-28aa-4580-b02a-c9018c07d105',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             84 => 
             array (
@@ -1036,8 +1036,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '通知平台',
                 'order' => 1,
                 'parent_id' => 84,
-                'slug' => 'bc7fd45b-97de-4adc-a724-a09f3f74306f',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '3565f66f-3c83-4a56-997d-45747ceb3e38',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             85 => 
             array (
@@ -1048,8 +1048,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '管理权限',
                 'order' => 3,
                 'parent_id' => 2,
-                'slug' => '607124af-38fa-48e1-959b-a157482504e7',
-                'updated_at' => '2023-04-20 12:30:24',
+                'slug' => '5ecd0b76-b378-4b30-82b5-80eb40c187bd',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             86 => 
             array (
@@ -1060,8 +1060,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '分销员管理',
                 'order' => 0,
                 'parent_id' => 20,
-                'slug' => '69e6efef-bc45-433d-95d0-77909f5f2535',
-                'updated_at' => '2023-04-20 23:46:19',
+                'slug' => '6dc94d1a-1611-4ad9-bb8e-17bbd0daee79',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             87 => 
             array (
@@ -1072,8 +1072,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '分销设置',
                 'order' => 1,
                 'parent_id' => 20,
-                'slug' => '4c65147d-4d33-4a54-9553-0b222825b504',
-                'updated_at' => '2023-04-20 23:46:41',
+                'slug' => '601da908-feae-4dbf-9e9d-9d5c64febd7f',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             88 => 
             array (
@@ -1084,8 +1084,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '分销等级',
                 'order' => 2,
                 'parent_id' => 20,
-                'slug' => 'a2a537fd-26f9-44e6-b922-6cbd2502e977',
-                'updated_at' => '2023-04-20 23:47:07',
+                'slug' => '9ca767ff-0b2a-45ea-945e-09bb6eb0db87',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             89 => 
             array (
@@ -1096,8 +1096,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '事业部',
                 'order' => 3,
                 'parent_id' => 20,
-                'slug' => 'f5f19c9e-1c09-45db-bdcf-2a42fe2d1dca',
-                'updated_at' => '2023-04-20 23:48:04',
+                'slug' => '4007405e-d7c0-4f8c-9c9a-436df1cc1f61',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             90 => 
             array (
@@ -1108,8 +1108,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '事业部列表',
                 'order' => 0,
                 'parent_id' => 92,
-                'slug' => 'f31edc60-8ef6-48a5-976d-d4580fa75818',
-                'updated_at' => '2023-04-20 23:48:32',
+                'slug' => '85b79740-228e-4e4c-b8e3-430a2fdfd806',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             91 => 
             array (
@@ -1120,8 +1120,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '代理商列表',
                 'order' => 1,
                 'parent_id' => 92,
-                'slug' => 'ea464725-ee9f-49e1-b48d-391dbe5660e3',
-                'updated_at' => '2023-04-20 23:49:09',
+                'slug' => 'ee77452a-4996-4e13-ba79-c8d37fb9d0ba',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             92 => 
             array (
@@ -1132,8 +1132,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '代理商申请',
                 'order' => 2,
                 'parent_id' => 92,
-                'slug' => '62969b12-d4ac-4bea-9c20-a5dd83164369',
-                'updated_at' => '2023-04-20 23:49:54',
+                'slug' => '567ffc23-39b9-4025-8e09-7b8964a1d1ee',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             93 => 
             array (
@@ -1144,8 +1144,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '页面设计',
                 'order' => 0,
                 'parent_id' => 24,
-                'slug' => 'a6dfcf71-421f-484b-ac48-bf89e7aa45f9',
-                'updated_at' => '2023-04-20 23:51:15',
+                'slug' => '47ba845a-f1f5-4499-b9fe-ec85e2fe452b',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             94 => 
             array (
@@ -1156,8 +1156,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '数据配置',
                 'order' => 1,
                 'parent_id' => 24,
-                'slug' => 'e4b1182f-4bc9-489f-ad1a-444b3b2b4ddc',
-                'updated_at' => '2023-04-20 23:51:48',
+                'slug' => 'ccf42209-87db-446e-803a-14976067ea36',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             95 => 
             array (
@@ -1168,8 +1168,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '主题风格',
                 'order' => 2,
                 'parent_id' => 24,
-                'slug' => 'dc9aee03-e376-4cf0-9a45-638826f95d9b',
-                'updated_at' => '2023-04-20 23:52:13',
+                'slug' => '3f5197ed-dea9-4663-a14e-e63f65f32cc2',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             96 => 
             array (
@@ -1180,8 +1180,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => 'PC商城',
                 'order' => 3,
                 'parent_id' => 24,
-                'slug' => '931825e3-f412-4808-8c51-a61e874f9d3c',
-                'updated_at' => '2023-04-20 23:52:37',
+                'slug' => '6ce1750d-33fc-486a-9b58-46646693ac36',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             97 => 
             array (
@@ -1192,8 +1192,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '素材管理',
                 'order' => 4,
                 'parent_id' => 24,
-                'slug' => 'cbaf8fb8-d68a-49bd-85a8-ca0c605650c4',
-                'updated_at' => '2023-04-20 23:53:03',
+                'slug' => '932a1c0c-dc6c-4739-bfeb-a9d9af017b52',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             98 => 
             array (
@@ -1204,8 +1204,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '公众号',
                 'order' => 0,
                 'parent_id' => 25,
-                'slug' => 'ba1e3e8a-e8b1-4c23-9311-6e934d38b617',
-                'updated_at' => '2023-04-20 23:54:01',
+                'slug' => '305e896e-5816-4e0d-886e-b1ce1c152459',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             99 => 
             array (
@@ -1216,8 +1216,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '小程序',
                 'order' => 1,
                 'parent_id' => 25,
-                'slug' => '3b31b7ce-6cd1-44a6-86f2-d6fd30585b32',
-                'updated_at' => '2023-04-20 23:55:04',
+                'slug' => 'a9873f3a-3167-4bfe-8aca-db619ab21bd4',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             100 => 
             array (
@@ -1228,8 +1228,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => 'APP',
                 'order' => 2,
                 'parent_id' => 25,
-                'slug' => '2e626331-c82a-4be3-b2ab-9f7157287298',
-                'updated_at' => '2023-04-20 23:55:26',
+                'slug' => '7aaf7944-767b-4e1a-8927-73d7b570bcc6',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             101 => 
             array (
@@ -1240,8 +1240,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => 'PC端',
                 'order' => 3,
                 'parent_id' => 25,
-                'slug' => '5b1e7ae4-42cd-435b-9fec-42bc456fa1f4',
-                'updated_at' => '2023-04-20 23:55:46',
+                'slug' => 'db5e28b4-68b4-4706-8dcb-490f35ed5a90',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             102 => 
             array (
@@ -1252,8 +1252,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '微信菜单',
                 'order' => 0,
                 'parent_id' => 101,
-                'slug' => 'a156de87-fc4d-4738-9048-6f4bf36e6b49',
-                'updated_at' => '2023-04-20 23:56:21',
+                'slug' => 'f970019b-3272-4f04-9e2c-42824c976ad9',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             103 => 
             array (
@@ -1264,8 +1264,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '图文管理',
                 'order' => 1,
                 'parent_id' => 101,
-                'slug' => 'ec57b318-68be-4c31-be6e-e6c91b61124d',
-                'updated_at' => '2023-04-20 23:57:14',
+                'slug' => '7ae1f893-41f2-40d0-8144-b8eb847e0775',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             104 => 
             array (
@@ -1276,8 +1276,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '自动回复',
                 'order' => 2,
                 'parent_id' => 101,
-                'slug' => 'ccb1c1a1-4b01-42b3-bcd8-c7e72cb5a1fb',
-                'updated_at' => '2023-04-20 23:57:50',
+                'slug' => 'aab654a5-1f60-47c7-aad2-8eb85ebdd98d',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             105 => 
             array (
@@ -1288,8 +1288,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '关注回复',
                 'order' => 0,
                 'parent_id' => 107,
-                'slug' => '98668eeb-350a-4fe9-9de2-65e42da0618c',
-                'updated_at' => '2023-04-20 23:58:54',
+                'slug' => '1980b453-3366-4e02-ad65-4870bde209b1',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             106 => 
             array (
@@ -1300,8 +1300,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '关键字回复',
                 'order' => 1,
                 'parent_id' => 107,
-                'slug' => '7226c77e-cd66-4e63-8ffe-123d561cae2e',
-                'updated_at' => '2023-04-20 23:59:39',
+                'slug' => '52d31052-19b4-44db-9ab5-74613f6950a8',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             107 => 
             array (
@@ -1312,8 +1312,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '无效词回复',
                 'order' => 2,
                 'parent_id' => 107,
-                'slug' => 'cc48ee04-348b-4efc-8702-3c86dd582943',
-                'updated_at' => '2023-04-21 00:00:15',
+                'slug' => 'a04d790b-ce74-4a38-9f07-3528fcc27afd',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             108 => 
             array (
@@ -1324,8 +1324,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '公众号配置',
                 'order' => 3,
                 'parent_id' => 101,
-                'slug' => '52747b22-c926-4dbf-87d6-8e5cb2d3a405',
-                'updated_at' => '2023-04-21 00:00:56',
+                'slug' => '66f6036f-bf4f-4709-b0e1-d44c7a37edf5',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             109 => 
             array (
@@ -1336,8 +1336,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '小程序下周',
                 'order' => 0,
                 'parent_id' => 102,
-                'slug' => 'bac05044-80fc-4304-8dc8-c581e6bc4410',
-                'updated_at' => '2023-04-21 00:01:34',
+                'slug' => 'aa6dcf6a-3eb7-45b5-a9a2-09596ecd5a99',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             110 => 
             array (
@@ -1348,8 +1348,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '小程序配置',
                 'order' => 1,
                 'parent_id' => 102,
-                'slug' => 'a153ad0a-b457-45c9-86b3-cb7e3532a528',
-                'updated_at' => '2023-04-21 00:01:58',
+                'slug' => '35fda251-3c5a-49b0-bcdd-e49bddbfe6aa',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             111 => 
             array (
@@ -1360,8 +1360,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => 'APP配置',
                 'order' => 0,
                 'parent_id' => 103,
-                'slug' => '626bf729-6eb5-4253-ace7-9a7ccccd93f7',
-                'updated_at' => '2023-04-21 00:02:18',
+                'slug' => '3b623c77-4a84-4eee-9ecd-f07320340a99',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             112 => 
             array (
@@ -1372,8 +1372,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '版本管理',
                 'order' => 1,
                 'parent_id' => 103,
-                'slug' => 'fd07e8dc-f084-4ca7-b350-d7cb0fd48707',
-                'updated_at' => '2023-04-21 00:02:40',
+                'slug' => 'c84fbf7d-a7f5-4336-9122-a8dba938652b',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             113 => 
             array (
@@ -1384,8 +1384,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => 'PC端配置',
                 'order' => 0,
                 'parent_id' => 104,
-                'slug' => '933d8b39-6e7a-480d-bc02-291edb20a603',
-                'updated_at' => '2023-04-21 00:03:02',
+                'slug' => 'cd1f4864-8947-4d1e-a747-471c8e8b2c6d',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             114 => 
             array (
@@ -1396,8 +1396,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '协议设置',
                 'order' => 2,
                 'parent_id' => 2,
-                'slug' => '4241c025-f09d-41d1-9ca2-57bdf3088874',
-                'updated_at' => '2023-04-21 00:04:49',
+                'slug' => '535c1bf2-33e5-4397-a852-caac0af30a5e',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             115 => 
             array (
@@ -1408,8 +1408,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '发货设置',
                 'order' => 4,
                 'parent_id' => 2,
-                'slug' => 'b13686ca-3488-46bf-9b23-a33594c4c13b',
-                'updated_at' => '2023-04-21 00:05:33',
+                'slug' => 'c67fad12-19f0-4b08-a21f-2c0c4fe83e82',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             116 => 
             array (
@@ -1420,8 +1420,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '配送员设置',
                 'order' => 0,
                 'parent_id' => 118,
-                'slug' => '36c64283-4b4b-447b-bc6b-f0775cf02b3d',
-                'updated_at' => '2023-04-21 00:06:09',
+                'slug' => '4b72c299-b232-4834-9141-ed3119ce0f3b',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             117 => 
             array (
@@ -1432,8 +1432,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '提货点设置',
                 'order' => 1,
                 'parent_id' => 118,
-                'slug' => '5e04c0f2-7aa1-45a9-a26f-6875ab3a7391',
-                'updated_at' => '2023-04-21 00:15:06',
+                'slug' => '98441815-20cb-410c-b45b-b4c8dd272c1e',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             118 => 
             array (
@@ -1444,8 +1444,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '提货点',
                 'order' => 0,
                 'parent_id' => 120,
-                'slug' => 'fd2d1bd9-807a-4930-a431-4390239906f8',
-                'updated_at' => '2023-04-21 00:08:26',
+                'slug' => '54f23515-b3f5-4770-9a37-b27799da4103',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             119 => 
             array (
@@ -1456,8 +1456,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '核销员',
                 'order' => 1,
                 'parent_id' => 120,
-                'slug' => '9c75bdf9-de91-4cab-93a0-6f8b95c88650',
-                'updated_at' => '2023-04-21 00:10:01',
+                'slug' => '08551062-f0a7-4d66-851d-22591422c437',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             120 => 
             array (
@@ -1468,8 +1468,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '运费模板',
                 'order' => 2,
                 'parent_id' => 118,
-                'slug' => 'e9d8a136-a49f-4a2a-8328-7ab897f5206d',
-                'updated_at' => '2023-04-21 00:11:46',
+                'slug' => 'd61701e4-0709-41af-a1b7-7c5e1bce1e50',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             121 => 
             array (
@@ -1480,8 +1480,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '接口配置',
                 'order' => 5,
                 'parent_id' => 2,
-                'slug' => '649eda7e-c569-4766-818d-612c696f9037',
-                'updated_at' => '2023-04-21 00:16:30',
+                'slug' => '6db6e490-800c-4a73-848f-36624f8aba70',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             122 => 
             array (
@@ -1492,8 +1492,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '一号通',
                 'order' => 0,
                 'parent_id' => 124,
-                'slug' => '75d36748-abc3-4cdc-84a5-6009d29c7d26',
-                'updated_at' => '2023-04-21 00:17:01',
+                'slug' => '33862c9b-1a60-4fed-ac40-585db14aca26',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             123 => 
             array (
@@ -1504,8 +1504,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '系统存储配置',
                 'order' => 1,
                 'parent_id' => 124,
-                'slug' => 'b5dc7a39-dfe0-412b-8721-87d48bed38d0',
-                'updated_at' => '2023-04-21 00:17:44',
+                'slug' => 'fc0b1a4a-2324-4bac-b9b3-b2e1cbd107fd',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             124 => 
             array (
@@ -1516,8 +1516,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '小票打印配置',
                 'order' => 2,
                 'parent_id' => 124,
-                'slug' => '93764613-c094-43ba-9ddf-4d5929ed5c54',
-                'updated_at' => '2023-04-21 00:18:25',
+                'slug' => 'b6329141-8439-4e6c-b7b8-d2fb20fec481',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             125 => 
             array (
@@ -1528,8 +1528,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '商品采集配置',
                 'order' => 3,
                 'parent_id' => 124,
-                'slug' => '8acb8390-ec1d-4e43-90e6-1fbd3a857ba6',
-                'updated_at' => '2023-04-21 00:19:23',
+                'slug' => '5a5ffeea-13d3-4719-911b-79dbd9c3d1a8',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             126 => 
             array (
@@ -1540,8 +1540,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '物流查询配置',
                 'order' => 4,
                 'parent_id' => 124,
-                'slug' => '63eaa24e-598b-4a9d-b5cf-68ef0cd4715b',
-                'updated_at' => '2023-04-21 00:20:06',
+                'slug' => '3f25c4d6-ad7a-4d34-be63-10dc935af129',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             127 => 
             array (
@@ -1552,8 +1552,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '电子面单配置',
                 'order' => 5,
                 'parent_id' => 124,
-                'slug' => '8a3895ba-87f6-4061-b262-1a4811d915c3',
-                'updated_at' => '2023-04-21 00:20:55',
+                'slug' => '60e3b188-f4a7-4397-ad98-3ebf1d280783',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             128 => 
             array (
@@ -1564,8 +1564,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '短信接口配置',
                 'order' => 6,
                 'parent_id' => 124,
-                'slug' => '5d053de9-266e-4187-9ced-b0e2d22a19e6',
-                'updated_at' => '2023-04-21 00:21:35',
+                'slug' => 'f79d4edc-db92-4280-8657-f18932cd21b3',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             129 => 
             array (
@@ -1576,8 +1576,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '开发配置',
                 'order' => 0,
                 'parent_id' => 18,
-                'slug' => '5af984a4-fbf1-4c7b-b69a-b5cf6212d2df',
-                'updated_at' => '2023-04-21 00:22:39',
+                'slug' => '56158c97-5b97-4dd2-9584-b47a949a5a44',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             130 => 
             array (
@@ -1588,8 +1588,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '定时任务',
                 'order' => 3,
                 'parent_id' => 132,
-                'slug' => '9a831ff8-620e-4310-b354-873140953187',
-                'updated_at' => '2023-04-21 00:23:20',
+                'slug' => '4158e533-c4bf-493e-b6bc-9919f44fe2f1',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             131 => 
             array (
@@ -1600,8 +1600,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '配置分类',
                 'order' => 0,
                 'parent_id' => 132,
-                'slug' => 'a88fedaf-ecc6-4239-b54c-04325af812bf',
-                'updated_at' => '2023-04-21 00:24:05',
+                'slug' => 'e1a234e8-d494-40c6-b474-b145c94fe1a1',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             132 => 
             array (
@@ -1612,8 +1612,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '组合数据',
                 'order' => 1,
                 'parent_id' => 132,
-                'slug' => '10acdbe0-b39f-4161-abff-4c2f6954d916',
-                'updated_at' => '2023-04-21 00:24:49',
+                'slug' => 'e0667280-1e0e-4887-b391-73b5194224c9',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             133 => 
             array (
@@ -1624,8 +1624,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '文件管理',
                 'order' => 2,
                 'parent_id' => 132,
-                'slug' => '7c1a52dc-32d2-4ee4-bfcb-eb7fc3464f36',
-                'updated_at' => '2023-04-21 00:25:22',
+                'slug' => 'f9b196e1-c193-44ab-a256-8e2e488ba119',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             134 => 
             array (
@@ -1636,8 +1636,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '安全维护',
                 'order' => 1,
                 'parent_id' => 18,
-                'slug' => '468ec7e6-7a8b-4eb9-80ca-7a80b8eda109',
-                'updated_at' => '2023-04-21 00:26:00',
+                'slug' => '2c365248-9554-4276-9a83-f5c7db806e14',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             135 => 
             array (
@@ -1648,8 +1648,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '刷新缓存',
                 'order' => 0,
                 'parent_id' => 137,
-                'slug' => '86c45ac3-d225-4bea-8aa2-4b6fafc8c917',
-                'updated_at' => '2023-04-21 00:26:28',
+                'slug' => 'cc6cb109-90e6-4ab2-9b60-da0870342878',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             136 => 
             array (
@@ -1660,8 +1660,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '系统日志',
                 'order' => 1,
                 'parent_id' => 137,
-                'slug' => '0a604238-dd9c-4492-a211-a2ede9390bcd',
-                'updated_at' => '2023-04-21 00:26:54',
+                'slug' => 'e986e336-e38a-4e20-9880-6dae6b516a4a',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             137 => 
             array (
@@ -1672,8 +1672,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '文件校验',
                 'order' => 2,
                 'parent_id' => 137,
-                'slug' => '2074228f-8cc2-4784-b94c-c20127b78952',
-                'updated_at' => '2023-04-21 00:27:49',
+                'slug' => 'a08d4af1-5fa4-42cb-887a-a7dab5375621',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             138 => 
             array (
@@ -1684,8 +1684,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '数据维护',
                 'order' => 2,
                 'parent_id' => 18,
-                'slug' => '98a3541a-548a-4e33-beac-cf4da50f36fc',
-                'updated_at' => '2023-04-21 00:28:31',
+                'slug' => 'bfc3239e-158e-4be9-ae28-430eac64b38b',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             139 => 
             array (
@@ -1696,8 +1696,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '物流公司',
                 'order' => 0,
                 'parent_id' => 141,
-                'slug' => 'b8e91d19-6f2a-41c4-ad9f-a660de4bf38e',
-                'updated_at' => '2023-04-21 00:29:02',
+                'slug' => '9fa4500b-3d94-4335-a38f-7156d4adce2f',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             140 => 
             array (
@@ -1708,8 +1708,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '城市数据',
                 'order' => 1,
                 'parent_id' => 141,
-                'slug' => '33e7af7d-ffb6-4f95-ae9c-7d8fea92cf6c',
-                'updated_at' => '2023-04-21 00:29:37',
+                'slug' => '2fe643ef-f754-4900-a1e4-70bc7da2b4d3',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             141 => 
             array (
@@ -1720,8 +1720,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '数据备份',
                 'order' => 2,
                 'parent_id' => 141,
-                'slug' => '97e65462-a9c8-4bf6-9374-abb9a3459be1',
-                'updated_at' => '2023-04-21 00:30:02',
+                'slug' => '1a373d1f-e779-4489-857e-fb878b926465',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             142 => 
             array (
@@ -1732,8 +1732,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '系统对外接口',
                 'order' => 3,
                 'parent_id' => 18,
-                'slug' => '83ac784d-45ef-4151-9946-317d4d929f98',
-                'updated_at' => '2023-04-21 00:30:47',
+                'slug' => '64336568-f001-42b1-b311-bac4dafe7310',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             143 => 
             array (
@@ -1744,8 +1744,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '账号管理',
                 'order' => 0,
                 'parent_id' => 145,
-                'slug' => 'b199f194-2bb9-4b8a-bd54-7ecd7b46af0f',
-                'updated_at' => '2023-04-21 00:31:20',
+                'slug' => '4c94eef4-0fa7-4682-afd2-01440403e23c',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
             144 => 
             array (
@@ -1756,8 +1756,8 @@ class AdminPermissionsTableSeeder extends Seeder
                 'name' => '接口文档',
                 'order' => 1,
                 'parent_id' => 145,
-                'slug' => '77453280-b4f8-411b-840a-b33b652c0758',
-                'updated_at' => '2023-04-21 00:31:50',
+                'slug' => '50a6c4ff-1b17-4177-96ae-a829c8a4b97a',
+                'updated_at' => '2023-05-11 23:26:37',
             ),
         ));
         

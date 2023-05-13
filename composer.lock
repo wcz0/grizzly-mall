@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5d027c2734c64f70fd73c1deb312548e",
+    "content-hash": "e250378161d8f740fad20805ae89c0dd",
     "packages": [
         {
             "name": "brick/math",
@@ -3853,6 +3853,51 @@
                 "source": "https://github.com/Slowlyo/owl-admin/tree/v2.5.1"
             },
             "time": "2023-04-29T04:38:59+00:00"
+        },
+        {
+            "name": "slowlyo/owl-module-notice",
+            "version": "v1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://gitee.com/slowlyo/owl-module-notice",
+                "reference": "8410e77a08cee435055f8d8cf6f57cfac5b86e3f"
+            },
+            "require": {
+                "php": ">=8.0",
+                "slowlyo/owl-admin": "*"
+            },
+            "type": "library",
+            "extra": {
+                "owl-admin": "Slowlyo\\Notice\\NoticeServiceProvider",
+                "laravel": {
+                    "providers": [
+                        "Slowlyo\\Notice\\NoticeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Slowlyo\\Notice\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "slowlyo",
+                    "email": "slowlyo_email@qq.com"
+                }
+            ],
+            "description": "OwlAdmin 扩展: 后台功能-通知公告管理",
+            "homepage": "https://gitee.com/slowlyo/notice",
+            "keywords": [
+                "extension",
+                "notice",
+                "owl-admin"
+            ],
+            "time": "2023-04-10T06:25:51+00:00"
         },
         {
             "name": "swoole/ide-helper",

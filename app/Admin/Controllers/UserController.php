@@ -13,7 +13,18 @@ use Slowlyo\OwlAdmin\Controllers\AdminController;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Slowlyo\OwlAdmin\Renderers\Container;
+use Slowlyo\OwlAdmin\Renderers\Dialog;
+use Slowlyo\OwlAdmin\Renderers\DialogAction;
+use Slowlyo\OwlAdmin\Renderers\Drawer;
+use Slowlyo\OwlAdmin\Renderers\DrawerAction;
+use Slowlyo\OwlAdmin\Renderers\ImageControl;
+use Slowlyo\OwlAdmin\Renderers\LinkAction;
+use Slowlyo\OwlAdmin\Renderers\Operation;
 use Slowlyo\OwlAdmin\Renderers\SelectControl;
+use Slowlyo\OwlAdmin\Renderers\Tabs;
+use Slowlyo\OwlAdmin\Renderers\Tpl;
+use Slowlyo\OwlAdmin\Renderers\VanillaAction;
 
 /**
  * @property UserService $service
@@ -68,21 +79,46 @@ class UserController extends AdminController
             ->columns([
                 TableColumn::make()->name('id')->label('用户id')->sortable(true),
                 TableColumn::make()->name('username')->label('用户名'),
-                TableColumn::make()->name('real_name')->label('姓名'),
-                TableColumn::make()->name('is_money_level')->label('付费会员')->type('status'),
-                TableColumn::make()->name('card_id')->label('用户等级'),
-                TableColumn::make()->name('mark')->label('分组'),
+                TableColumn::make()->name('name')->label('姓名'),
+                TableColumn::make()->name('member_level')->label('付费会员')->type('status'),
+                TableColumn::make()->name('level')->label('用户等级'),
+                TableColumn::make()->name('user_group.name')->label('分组'),
                 TableColumn::make()->name('phone')->label('手机号'),
-                TableColumn::make()->name('group_id')->label('用户类型'),
-                TableColumn::make()->name('nickname')->label('余额'),
+                TableColumn::make()->name('user_type')->label('用户类型'),
+                TableColumn::make()->name('money')->label('余额'),
 
-                $this->rowActions(true),
+                $this->rowActions(true, 1000),
             ]);
 
         return $this->baseList($crud);
     }
 
+    protected function rowActions(bool $drawer = false, $size = 0): Operation
+    {
+        return Operation::make()->label('操作')->buttons([
+            $this->rowShowButtonDrawer($drawer, $size),
+            // $this->rowEditButton($dialog, $dialogSize),
+            $this->rowDeleteButton(),
+        ]);
+    }
 
+
+    public function rowShowButtonDrawer(bool $drawer = false, $size = 0)
+    {
+        if ($drawer) {
+            $button = DrawerAction::make()->drawer(
+                Drawer::make()->title('用户详情')->body($this->detail())
+                    ->width($size)
+                    ->showCloseButton(false)
+                    ->closeOnOutside(true)
+                    ->actions()
+            );
+        } else {
+            $button = LinkAction::make()->link($this->getShowPath());
+        }
+
+        return $button->label(('查看'))->icon('fa-regular fa-eye')->level('link');
+    }
 
     public function form(): Form
     {
@@ -142,9 +178,16 @@ class UserController extends AdminController
         ]);
     }
 
-    public function detail(): Form
+
+    public function edit($id): Form
     {
-        return $this->baseDetail()->body([
+        $this->isEdit = true;
+
+        if ($this->actionOfGetData()) {
+            return $this->response()->success();
+        }
+
+        return $this->baseForm()->body([
             amis('input-image')->label('头像')->name('avatar')->receiver($this->uploadImagePath()),
             TextControl::make()->name('username')->label('用户名')->required(true)->validateOnChange(true),
             TextControl::make()->name('name')->label('姓名')->required(true)->validateOnChange(true),
@@ -200,6 +243,58 @@ class UserController extends AdminController
         ]);
     }
 
+    public function detail(): Form
+    {
+        return $this->baseForm()
+            ->api($this->getStorePath())
+            ->data($this->getShowPath())->initApi($this->getShowGetDataPath())
+            ->body([
+                Container::make()->isFreeContainer('1')->size('xs')->body(
+                    [
+                        amis('image')->src('${avatar}')->id('u:f6e4bcc28647')->style(['position' => 'absolute', 'inset' => '10px auto auto 10px',]),
+                        Tpl::make()->tpl('${name}')->inline('')->wrapperComponent('')->id('u:52b92e8d759a')->style(['position' => 'absolute', 'inset' => '22px auto auto 149px',]),
+                        TextControl::make()->label('余额:')->name('money')->id('u:bdab0486cccf')->style(['position' => 'absolute', 'inset' => '65px auto auto 152px',])->originPosition('left-top')->readOnly('1')->static('1')->mode('inline'),
+                        TextControl::make()->label('积分:')->name('integral')->id('u:f4f5e9216c7f')->style(['position' => 'absolute', 'inset' => '124px auto auto 151px',])->originPosition('left-top')->mode('inline')->static('1'),
+                        TextControl::make()->label('总消费金额:')->name('total-expense')->id('u:bc58c4261e70')->style(['position' => 'absolute', 'inset' => '71px auto auto 475px',])->originPosition('left-top')->static('1')->mode('inline'),
+                        TextControl::make()->label('总计订单:')->name('order-total')->id('u:3cf8e78ef193')->style(['position' => 'absolute', 'inset' => '66px auto auto 288px',])->mode('inline')->originPosition('left-top')->static('1'),
+                        TextControl::make()->label('本月订单:')->name('order-month')->id('u:798b6c986159')->style(['position' => 'absolute', 'inset' => '130px auto auto 287px',])->originPosition('left-top')->static('1')->mode('inline'),
+                        TextControl::make()->label('本月消费金额:')->name('month-expense')->id('u:2fb7a81a2fcd')->style(['position' => 'absolute', 'inset' => '133px auto auto 476px',])->mode('inline')->static('1')->originPosition('left-top'),
+                    ]
+                )->wrapperBody('')->style(['position' => 'relative', 'minHeight' => '200px',])->id('u:e33a0066701a'),
+                Tabs::make()->tabs([
+                    ['title' => '用户信息', 'body' => [
+                        Form::make()->title('表单')->body(
+                            [
+                                Tpl::make()->tpl('基本信息')->inline('')->wrapperComponent('')->id('u:384a6d3c6251'),
+                                TextControl::make()->label('用户id')->name('id')->id('u:b71e14f65e0e')->mode('inline')->static('')->readOnly('1'),
+                                TextControl::make()->label('姓名')->name('name')->id('u:06a1adfda5cb')->static('')->validations(['maxLength' => '32',])->required('1'),
+                                TextControl::make()->label('手机号码')->name('phone')->id('u:2833e49f8538')->validateOnChange('1')->required('1')->validations(['isPhoneNumber' => '1',])->static(''),
+                                TextControl::make()->label('文本')->name('text')->id('u:20019e153c26')->mode('horizontal')->size('sm'),
+                            ]
+                        )->api(['url' => 'gm.local', 'method' => 'get',])->mode('inline')->id('u:d3c00e7ba77a')->wrapWithPanel('')->persistData('1')->clearPersistDataAfterSubmit('1'),
+                    ], 'id' => 'u:abab894324c7',],
+                    ['title' => '消费记录', 'body' => [
+                        Tpl::make()->tpl('内容2')->wrapperComponent('')->inline('')->id('u:9c015c70b296'),
+                    ], 'id' => 'u:59251888f5f1',],
+                    ['title' => '积分明细', 'body' => [
+                        Tpl::make()->tpl('内容')->inline('')->id('u:2301c5b878d1'),
+                    ], 'id' => 'u:c9d2b8796e07',],
+                    ['title' => '签到记录', 'body' => [
+                        Tpl::make()->tpl('内容')->inline(''),
+                    ],],
+                    ['title' => '持有优惠券', 'body' => [
+                        Tpl::make()->tpl('内容')->inline(''),
+                    ],],
+                    ['title' => '余额变动', 'body' => [
+                        Tpl::make()->tpl('内容')->inline(''),
+                    ],],
+                    ['title' => '好友关系', 'body' => [
+                        Tpl::make()->tpl('内容')->inline(''),
+                    ],],
+                ])->id('u:2f03a1d6c574')->toolbar([])->hidden('')->mountOnEnter('1')->tabsMode('')->showTip(''),
+            ]);
+    }
+
 
     public function store(Request $request)
     {
@@ -224,6 +319,11 @@ class UserController extends AdminController
         if ($validator->fails()) {
             return $this->response()->fail($validator->errors());
         }
-        return $this->autoResponse($this->service->store($request->all()));
+        return $this->autoResponse($this->service->store($request));
+    }
+
+    public function show($id)
+    {
+        return $this->response()->success($this->service->getDetail($id));
     }
 }

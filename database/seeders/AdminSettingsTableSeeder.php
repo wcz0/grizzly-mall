@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class AdminSettingsTableSeeder extends Seeder
 {
@@ -14,12 +15,12 @@ class AdminSettingsTableSeeder extends Seeder
      */
     public function run()
     {
-        
 
-        \DB::table('admin_settings')->delete();
-        
-        \DB::table('admin_settings')->insert(array (
-            0 => 
+
+        DB::table('admin_settings')->delete();
+
+        DB::table('admin_settings')->insert(array (
+            0 =>
             array (
                 'created_at' => '2023-04-19 21:43:28',
                 'key' => 'system_theme_setting',
@@ -27,7 +28,7 @@ class AdminSettingsTableSeeder extends Seeder
                 'values' => '{"footer":true,"breadcrumb":true,"breadcrumbIcon":false,"themeColor":"#4080FF","menuWidth":250,"layoutMode":"double","theme":"light","siderTheme":"light","topTheme":"light","animateInType":"alpha","animateInDuration":550,"animateOutType":"alpha","animateOutDuration":450,"loginTemplate":"default","keepAlive":true,"enableTab":true,"tabIcon":true}',
             ),
         ));
-        
-        
+
+
     }
 }
