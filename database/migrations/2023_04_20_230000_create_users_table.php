@@ -35,7 +35,7 @@ return new class extends Migration
             $table->decimal('exp', 8,2)->default(0);
             $table->string('sign_num')->default('');
             $table->unsignedTinyInteger('state')->default(1)->index();
-            $table->unsignedTinyInteger('level')->default(0)->index();
+            $table->unsignedTinyInteger('level')->default(1)->index();
             $table->string('agent_level')->default('');
             $table->unsignedTinyInteger('spread_open')->default(0);
             $table->unsignedInteger('spread_id')->default(0)->index();

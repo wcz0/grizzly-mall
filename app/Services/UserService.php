@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Slowlyo\OwlAdmin\Services\AdminService;
 
 /**
@@ -35,6 +36,28 @@ class UserService extends AdminService
         return false;
     }
 
+    public function updateNew($request): bool
+    {
+        $columns = $this->getTableColumns();
+
+        $model = $this->query()->where('id', $request->id)->first();
+        $request->collect()->each(function ($value, $key) use ($model, $request, $columns) {
+            if (!in_array($key, $columns)) {
+                return;
+            }
+            if ($request->filled($key)) {
+                $model->setAttribute($key, $value);
+            }
+        });
+        if($request->filled('password')){
+            $model->password = bcrypt($request->password);
+        }
+        if ($model->save()) {
+            return true;
+        }
+        return false;
+    }
+
     public function list()
     {
         $keyword = request()->keyword;
@@ -61,6 +84,7 @@ class UserService extends AdminService
         $items = (clone $query)->paginate(request()->input('perPage', 20))->items();
         foreach ($items as $item) {
             $item->member_level = $item->member_level > 0 ? 1 : 0;
+            $item->level = 'V'.$item->level;
         }
         $total = (clone $query)->count();
         return compact('items', 'total');
@@ -68,7 +92,80 @@ class UserService extends AdminService
 
     public function getDetail($id)
     {
-        $user = parent::getDetail($id)->makeHidden('password');
-        return $user;
+        $data = $this->query()
+            ->where('id', $id)
+            ->with([
+                'userGroup:id,name',
+                'spreadUser:id,name',
+            ])
+            ->withCount([
+                'storeOrder as total_order',
+                'storeOrder as month_order' => function ($query) {
+                    $query->whereBetween('created_at', [
+                        now()->startOfMonth(),
+                        now()->endOfMonth(),
+                    ]);
+                },
+            ])
+            ->withSum('storeOrder as total_price', 'pay_price')
+            ->withSum(['storeOrder as month_price' => function ($query) {
+                $query->whereBetween('created_at', [
+                    now()->startOfMonth(),
+                    now()->endOfMonth(),
+                ]);
+            }], 'pay_price')
+            ->select([
+                'id',
+                'name',
+                'birthday',
+                'avatar',
+                'card_id',
+                'address',
+                // 'level',
+                DB::raw('CONCAT("V",level) as level'),
+                'mark',
+                'state',
+                'phone',
+                'group_id',
+                'money',
+                'integral',
+                'is_spread',
+                'spread_user',
+                'last_time',
+                'created_at',
+                // todo: 标签
+            ])->first();
+        return $data;
+    }
+
+    public function getEditDataNew($id)
+    {
+        $data = $this->query()
+            ->where('id', $id)
+            ->with([
+                'userGroup:id,name',
+                // 'spreadUser:id,name',
+            ])
+            ->select([
+                'id',
+                'name',
+                'birthday',
+                'avatar',
+                'card_id',
+                'address',
+                'level',
+                'mark',
+                'state',
+                'phone',
+                'group_id',
+                'money',
+                'integral',
+                'is_spread',
+                'spread_user',
+                'last_time',
+                'created_at',
+                // todo: 标签
+            ])->first();
+        return $data;
     }
 }

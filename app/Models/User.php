@@ -21,6 +21,13 @@ class User extends Model
         return $this->hasOne(UserGroup::class, 'id', 'group_id');
     }
 
+    public function storeOrder()
+    {
+        return $this->hasMany(StoreOrder::class, 'user_id', 'id');
+    }
 
-
+    public function spreadUser()
+    {
+        return $this->hasOne(User::class, 'id', 'spread_id');
+    }
 }

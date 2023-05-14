@@ -13,16 +13,22 @@ use Slowlyo\OwlAdmin\Controllers\AdminController;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
+use Slowlyo\OwlAdmin\Renderers\Action;
+use Slowlyo\OwlAdmin\Renderers\Button;
 use Slowlyo\OwlAdmin\Renderers\Container;
 use Slowlyo\OwlAdmin\Renderers\Dialog;
 use Slowlyo\OwlAdmin\Renderers\DialogAction;
 use Slowlyo\OwlAdmin\Renderers\Drawer;
 use Slowlyo\OwlAdmin\Renderers\DrawerAction;
+use Slowlyo\OwlAdmin\Renderers\Grid;
+use Slowlyo\OwlAdmin\Renderers\GroupControl;
 use Slowlyo\OwlAdmin\Renderers\ImageControl;
 use Slowlyo\OwlAdmin\Renderers\LinkAction;
 use Slowlyo\OwlAdmin\Renderers\Operation;
 use Slowlyo\OwlAdmin\Renderers\SelectControl;
 use Slowlyo\OwlAdmin\Renderers\Tabs;
+use Slowlyo\OwlAdmin\Renderers\TextareaControl;
 use Slowlyo\OwlAdmin\Renderers\Tpl;
 use Slowlyo\OwlAdmin\Renderers\VanillaAction;
 
@@ -112,6 +118,17 @@ class UserController extends AdminController
                     ->showCloseButton(false)
                     ->closeOnOutside(true)
                     ->actions()
+                    ->onEvent([
+                        'cancel' => [
+                            'actions' => [
+                                ['actionType' => 'hidden', 'componentId' => 'edit-form'],
+                                ['actionType' => 'show', 'componentId' => 'show-form'],
+                                ['actionType' => 'show', 'componentId' => 'edit-btn'],
+                                ['actionType' => 'hidden', 'componentId' => 'cancel-btn'],
+                                ['actionType' => 'hidden', 'componentId' => 'submit-btn'],
+                            ]
+                        ]
+                    ])
             );
         } else {
             $button = LinkAction::make()->link($this->getShowPath());
@@ -122,176 +139,294 @@ class UserController extends AdminController
 
     public function form(): Form
     {
-        return $this->baseForm()->body([
-            amis('input-image')->label('头像')->name('avatar')->receiver($this->uploadImagePath()),
-            TextControl::make()->name('username')->label('用户名')->required(true)->validateOnChange(true),
-            TextControl::make()->name('name')->label('姓名')->required(true)->validateOnChange(true),
-            TextControl::make()->name('phone')->label('手机号码')->required(true)->validations([
-                'isPhoneNumber' => true,
-            ])->validateOnChange(true),
-            amis('input-date')->name('birthday')->label('生日'),
-            TextControl::make()->name('card_id')->label('身份证号')->validations([
-                'isId' => true,
-            ]),
-            TextControl::make()->name('address')->label('用户地址'),
-            amis('input-email')->name('email')->label('用户邮箱')->validateOnChange(true),
-            TextControl::make()->name('mark')->label('用户备注'),
-            amis('input-password')->name('password')->label('登录密码')->required(true)->validations([
-                'minLength' => 6,
-            ])->validateOnChange(true),
-            amis('input-password')->name('password_confirmation')->label('确认密码')->required(true)->validations([
-                'minLength' => 6,
-                'equalsField' => 'password',
-            ])->validateOnChange(true),
-            amis('select')->name('level')->label('用户等级')
-                ->options([
-                    1 => 'V1',
-                    2 => 'V2',
-                    3 => 'V3',
-                    4 => 'V4',
-                    5 => 'V5',
+        return $this->baseForm()
+            ->api($this->getUpdatePath())
+            ->title()
+            ->initApi($this->getEditGetDataPath())
+            ->id('edit-form')
+            ->mode('horizontal')
+            ->hidden(true)
+            ->persistData('1')
+            ->clearPersistDataAfterSubmit('1')
+            ->wrapWithPanel(false)
+            ->autoFocus(true)
+            ->messages([
+                'saveSuccess' => '保存成功',
+            ])
+            ->onEvent([
+                'submitSucc' => [
+                    'actions' => [
+                        ['actionType' => 'show', 'componentId' => 'show-form'],
+                        ['actionType' => 'hidden', 'componentId' => 'cancel-btn'],
+                        ['actionType' => 'hidden', 'componentId' => 'submit-btn'],
+                        ['actionType' => 'show', 'componentId' => 'edit-btn'],
+                        ['actionType' => 'hidden', 'componentId' => 'edit-form'],
+                    ]
+                ]
+            ])
+            ->body([
+                amis('group')->body([
+                    Tpl::make()->tpl('基本信息')->className('font-bold block border-solid border-0 border-l-4 border-primary pl-4')
                 ]),
-            SelectControl::make()
-                ->name('group_id')
-                ->label('用户分组')
-                // ->searchable(true)
-                ->labelField('name')
-                ->valueField('id')
-                ->joinValues(false)
-                ->extractValue(true)
-                ->options(UserGroupService::make()->query()->get(['id', 'name'])),
-            SelectControl::make()
-                ->name('label_id')
-                ->label('用户标签')
-                // ->searchable(true)
-                ->labelField('name')
-                ->valueField('id')
-                ->joinValues(false)
-                ->extractValue(true)
-                ->multiple(true)
-                ->selectMode('group')
-                // todo: 获取标签列表
-                ->options(),
-            amis('switch')->name('spread_open')->label('推广资格')->trueValue(1)->falseValue(0)->value('${spread_open}'),
-            amis('switch')->name('is_promoter')->label('推广权限')->trueValue(1)->falseValue(0)->value('${is_promoter}'),
-            amis('switch')->name('state')->label('用户状态')->trueValue(1)->falseValue(0)->value('${state}'),
-        ]);
+                amis('group')->body([
+                    amis('input-text')->label('用户ID:')->name('id')->readOnly(true),
+                    amis('input-text')->label('姓名:')->name('name')
+                        ->validateOnChange(true)
+                        ->validations([
+                            'maxLength' => '32',
+                        ])->required('1'),
+                ])->className('my-2'),
+                amis('group')->body([
+                    amis('input-text')->label('手机号码:')->name('phone')
+                        ->validateOnChange('1')
+                        ->required('1')
+                        ->validations(['isPhoneNumber' => '1',]),
+                    amis('input-date')->label('生日:')->name('birthday')
+                        ->format('YYYY-MM-DD')
+                        ->validateOnChange('1')
+                        ->minDate('-100years')
+                        ->maxDate('+0days'),
+                ])->className('my-2'),
+                amis('group')->body([
+                    amis('input-text')->label('身份证号:')->name('card_id')
+                        ->validateOnChange('1')
+                        ->validations(['isId' => '1',]),
+                    amis('input-text')->label('用户地址:')->name('address'),
+                ])->className('my-2'),
+                amis('group')->body([
+                    amis('divider')
+                ]),
+                amis('group')->body([
+                    Tpl::make()->tpl('基本信息')->className('font-bold block border-solid border-0 border-l-4 border-primary pl-4')
+                ])->className('my-2'),
+                amis('group')->body([
+                    amis('input-password')->label('密码:')->name('password')->placeholder('不输入默认不修改密码')
+                        ->validations([
+                            'minLength' => '6',
+                            'maxLength' => '32',
+                        ])
+                        ->validateOnChange(1),
+                    amis('input-password')->label('重复密码:')->name('password_confirmation')->placeholder('不输入默认不修改密码')
+                        ->validations([
+                            'minLength' => '6',
+                            'maxLength' => '32',
+                            'equalsField' => 'password',
+                        ])
+                        ->validateOnChange(1),
+                ])->className('my-2'),
+                amis('group')->body([
+                    amis('divider')->className('my-2'),
+                ]),
+                amis('group')->body([
+                    Tpl::make()->tpl('用户概况')->className('font-bold block border-solid border-0 border-l-4 border-primary pl-4')
+                ])->className('my-2'),
+                amis('group')->body([
+                    amis('select')->label('用户等级')->name('level')
+                        ->options([
+                            ['label' => 'V1', 'value' => 1],
+                            ['label' => 'V2', 'value' => 2],
+                            ['label' => 'V3', 'value' => 3],
+                            ['label' => 'V4', 'value' => 4],
+                            ['label' => 'V5', 'value' => 5],
+                        ]),
+                    amis('select')->label('用户分组')->name('user_group.name')
+                        ->label('用户分组')
+                        ->name('user_group.name')
+                        ->labelField('name')
+                        ->valueField('id')
+                        ->placeholder('请选择用户分组')
+                        ->options(UserGroupService::make()->query()->get(['id', 'name'])),
+                ])->className('my-2'),
+                amis('group')->body([
+                    amis('select')->label('用户标签')->name('label_id'), // todo 标签
+                ])->className('my-2'),
+                amis('group')->body([
+                    amis('switch')->label('推广资格')->name('is_spread'),
+                ])->className('my-2'),
+                amis('group')->body([
+                    amis('switch')->label('推广权限')->name('is_promoter'),
+                ])->className('my-2'),
+                amis('group')->body([
+                    amis('switch')->label('用户状态')->name('state'),
+                ])->className('my-2'),
+                amis('group')->body([
+                    amis('divider')->className('my-2'),
+                ]),
+                amis('group')->body([
+                    Tpl::make()->tpl('用户备注')->className('font-bold block border-solid border-0 border-l-4 border-primary pl-4')
+                ])->className('my-2'),
+                amis('group')->body([
+                    amis('textarea')->label('备注')->name('mark'),
+                ])->className('my-2'),
+                amis('group')->body([
+                    amis('divider'),
+                ])->className('my-2'),
+            ]);
     }
 
 
-    public function edit($id): Form
-    {
-        $this->isEdit = true;
 
-        if ($this->actionOfGetData()) {
-            return $this->response()->success();
-        }
-
-        return $this->baseForm()->body([
-            amis('input-image')->label('头像')->name('avatar')->receiver($this->uploadImagePath()),
-            TextControl::make()->name('username')->label('用户名')->required(true)->validateOnChange(true),
-            TextControl::make()->name('name')->label('姓名')->required(true)->validateOnChange(true),
-            TextControl::make()->name('phone')->label('手机号码')->required(true)->validations([
-                'isPhoneNumber' => true,
-            ])->validateOnChange(true),
-            amis('input-date')->name('birthday')->label('生日'),
-            TextControl::make()->name('card_id')->label('身份证号')->validations([
-                'isId' => true,
-            ]),
-            TextControl::make()->name('address')->label('用户地址'),
-            amis('input-email')->name('email')->label('用户邮箱')->validateOnChange(true),
-            TextControl::make()->name('mark')->label('用户备注'),
-            amis('input-password')->name('password')->label('登录密码')->required(true)->validations([
-                'minLength' => 6,
-            ])->validateOnChange(true),
-            amis('input-password')->name('password_confirmation')->label('确认密码')->required(true)->validations([
-                'minLength' => 6,
-                'equalsField' => 'password',
-            ])->validateOnChange(true),
-            amis('select')->name('level')->label('用户等级')
-                ->options([
-                    1 => 'V1',
-                    2 => 'V2',
-                    3 => 'V3',
-                    4 => 'V4',
-                    5 => 'V5',
-                ]),
-            SelectControl::make()
-                ->name('group_id')
-                ->label('用户分组')
-                // ->searchable(true)
-                ->labelField('name')
-                ->valueField('id')
-                ->joinValues(false)
-                ->extractValue(true)
-                ->options(UserGroupService::make()->query()->get(['id', 'name'])),
-            SelectControl::make()
-                ->name('label_id')
-                ->label('用户标签')
-                // ->searchable(true)
-                ->labelField('name')
-                ->valueField('id')
-                ->joinValues(false)
-                ->extractValue(true)
-                ->multiple(true)
-                ->selectMode('group')
-                // todo: 获取标签列表
-                ->options(),
-            amis('switch')->name('spread_open')->label('推广资格')->trueValue(1)->falseValue(0)->value('${spread_open}'),
-            amis('switch')->name('is_promoter')->label('推广权限')->trueValue(1)->falseValue(0)->value('${is_promoter}'),
-            amis('switch')->name('state')->label('用户状态')->trueValue(1)->falseValue(0)->value('${state}'),
-        ]);
-    }
-
-    public function detail(): Form
+    public function showForm()
     {
         return $this->baseForm()
-            ->api($this->getStorePath())
-            ->data($this->getShowPath())->initApi($this->getShowGetDataPath())
+            ->wrapWithPanel(false)
+            ->initApi($this->getShowGetDataPath())
+            ->title()
+            ->mode('horizontal')
+            ->id('show-form')
+            ->static(true)
+            ->submitText()
             ->body([
-                Container::make()->isFreeContainer('1')->size('xs')->body(
-                    [
-                        amis('image')->src('${avatar}')->id('u:f6e4bcc28647')->style(['position' => 'absolute', 'inset' => '10px auto auto 10px',]),
-                        Tpl::make()->tpl('${name}')->inline('')->wrapperComponent('')->id('u:52b92e8d759a')->style(['position' => 'absolute', 'inset' => '22px auto auto 149px',]),
-                        TextControl::make()->label('余额:')->name('money')->id('u:bdab0486cccf')->style(['position' => 'absolute', 'inset' => '65px auto auto 152px',])->originPosition('left-top')->readOnly('1')->static('1')->mode('inline'),
-                        TextControl::make()->label('积分:')->name('integral')->id('u:f4f5e9216c7f')->style(['position' => 'absolute', 'inset' => '124px auto auto 151px',])->originPosition('left-top')->mode('inline')->static('1'),
-                        TextControl::make()->label('总消费金额:')->name('total-expense')->id('u:bc58c4261e70')->style(['position' => 'absolute', 'inset' => '71px auto auto 475px',])->originPosition('left-top')->static('1')->mode('inline'),
-                        TextControl::make()->label('总计订单:')->name('order-total')->id('u:3cf8e78ef193')->style(['position' => 'absolute', 'inset' => '66px auto auto 288px',])->mode('inline')->originPosition('left-top')->static('1'),
-                        TextControl::make()->label('本月订单:')->name('order-month')->id('u:798b6c986159')->style(['position' => 'absolute', 'inset' => '130px auto auto 287px',])->originPosition('left-top')->static('1')->mode('inline'),
-                        TextControl::make()->label('本月消费金额:')->name('month-expense')->id('u:2fb7a81a2fcd')->style(['position' => 'absolute', 'inset' => '133px auto auto 476px',])->mode('inline')->static('1')->originPosition('left-top'),
-                    ]
-                )->wrapperBody('')->style(['position' => 'relative', 'minHeight' => '200px',])->id('u:e33a0066701a'),
-                Tabs::make()->tabs([
-                    ['title' => '用户信息', 'body' => [
-                        Form::make()->title('表单')->body(
-                            [
-                                Tpl::make()->tpl('基本信息')->inline('')->wrapperComponent('')->id('u:384a6d3c6251'),
-                                TextControl::make()->label('用户id')->name('id')->id('u:b71e14f65e0e')->mode('inline')->static('')->readOnly('1'),
-                                TextControl::make()->label('姓名')->name('name')->id('u:06a1adfda5cb')->static('')->validations(['maxLength' => '32',])->required('1'),
-                                TextControl::make()->label('手机号码')->name('phone')->id('u:2833e49f8538')->validateOnChange('1')->required('1')->validations(['isPhoneNumber' => '1',])->static(''),
-                                TextControl::make()->label('文本')->name('text')->id('u:20019e153c26')->mode('horizontal')->size('sm'),
-                            ]
-                        )->api(['url' => 'gm.local', 'method' => 'get',])->mode('inline')->id('u:d3c00e7ba77a')->wrapWithPanel('')->persistData('1')->clearPersistDataAfterSubmit('1'),
-                    ], 'id' => 'u:abab894324c7',],
-                    ['title' => '消费记录', 'body' => [
-                        Tpl::make()->tpl('内容2')->wrapperComponent('')->inline('')->id('u:9c015c70b296'),
-                    ], 'id' => 'u:59251888f5f1',],
-                    ['title' => '积分明细', 'body' => [
-                        Tpl::make()->tpl('内容')->inline('')->id('u:2301c5b878d1'),
-                    ], 'id' => 'u:c9d2b8796e07',],
-                    ['title' => '签到记录', 'body' => [
-                        Tpl::make()->tpl('内容')->inline(''),
-                    ],],
-                    ['title' => '持有优惠券', 'body' => [
-                        Tpl::make()->tpl('内容')->inline(''),
-                    ],],
-                    ['title' => '余额变动', 'body' => [
-                        Tpl::make()->tpl('内容')->inline(''),
-                    ],],
-                    ['title' => '好友关系', 'body' => [
-                        Tpl::make()->tpl('内容')->inline(''),
-                    ],],
-                ])->id('u:2f03a1d6c574')->toolbar([])->hidden('')->mountOnEnter('1')->tabsMode('')->showTip(''),
+                amis('grid')->columns([
+                    [Tpl::make()->tpl('基本信息')->className('font-bold block border-solid border-0 border-l-4 border-primary pl-4')]
+                ])->className('my-2'),
+                amis('grid')->columns([
+                    [amis('input-text')->label('用户ID:')->name('id')],
+                    [amis('input-text')->label('姓名:')->name('name')],
+                    [amis('input-text')->label('手机号码:')->name('phone')],
+                ])->className('my-1'),
+                amis('grid')->columns([
+                    [amis('input-text')->label('生日:')->name('birthday')->inputFormat('YYYY-MM-DD')],
+                    [TextControl::make()->label('身份证号:')->name('card_id')],
+                    [TextControl::make()->label('用户地址:')->name('address')],
+                ])->className('my-1'),
+                amis('divider')->className('my-2'),
+                amis('grid')->columns([
+                    [Tpl::make()->tpl('密码')->className('font-bold block border-solid border-0 border-l-4 border-primary pl-4')]
+                ])->className('my-2'),
+                amis('grid')->columns([
+                    [amis('input-text')->label('密码:')->name('password')->value('********')],
+                ])->className('my-1'),
+                amis('divider')->className('my-2'),
+                amis('grid')->columns([
+                    [Tpl::make()->tpl('用户概况')->className('font-bold block border-solid border-0 border-l-4 border-primary pl-4')]
+                ])->className('my-2'),
+                amis('grid')->columns([
+                    [TextControl::make()->label('推广资格:')->name('is_spread')],
+                    [amis('switch')->label('用户状态:')->name('state')],
+                    [TextControl::make()->label('用户等级:')->name('level')],
+                ])->className('my-1'),
+                amis('grid')->columns([
+                    [TextControl::make()->label('用户标签:')->name('label_id')], //todo 用户标签
+                    [TextControl::make()->label('用户分组:')->name('user_group.name')],
+                    [TextControl::make()->label('推广人:')->name('spread_user:name')],
+                ])->className('my-1'),
+                amis('grid')->columns([
+                    [TextControl::make()->label('注册时间:')->name('created_at')],
+                    [TextControl::make()->label('登录时间:')->name('last_time')],
+                    [],
+                ])->className('my-1'),
+                amis('divider')->className('my-2'),
+                amis('grid')->columns([
+                    [Tpl::make()->tpl('用户备注')->className('font-bold block border-solid border-0 border-l-4 border-primary pl-4')]
+                ])->className('my-2'),
+                amis('grid')->columns([
+                    [TextareaControl::make()->label('备注:')->name('mark')],
+                ])->className('my-1'),
+                amis('divider')->className('my-2'),
+            ])
+            ->mode('inline');
+    }
+
+    public function detail()
+    {
+        return $this->basePage()
+            ->data($this->getShowPath())
+            ->body([
+                Container::make()->body(
+                    [Grid::make()->columns([
+                        ['body' => [amis('image')->src('${avatar}')], 'md' => 'auto',],
+                        ['body' => [
+                            Grid::make()->columns([
+                                ['body' => [Tpl::make()->tpl('${name}')->inline('1')]],
+                            ])->className('my-1'),
+                            Grid::make()->columns([
+                                ['body' => [Tpl::make()->tpl('余额: ${money}')->inline('1')]],
+                                ['body' => [Tpl::make()->tpl('总计订单: ${total-order}')->inline('1')->wrapperComponent('')->id('u:3e36d8861f49'),], 'id' => 'u:cf71f9587a3f',],
+                                ['body' => [Tpl::make()->tpl('总消费金额: ${total-expense}')->inline('1')->wrapperComponent('')->id('u:b5cac074e9a1'),], 'id' => 'u:71008ba6ae36',],
+                            ])->className('my-1'),
+                            Grid::make()->columns([
+                                ['body' => [Tpl::make()->tpl('积分: ${integral}')->inline('1')], 'id' => 'u:812cb7706911',],
+                                ['body' => [Tpl::make()->tpl('本月订单: ${month-order}')->inline('1')->wrapperComponent('')->id('u:80a1dd94912d'),], 'id' => 'u:0f33644d2af9',],
+                                ['body' => [Tpl::make()->tpl('本月消费金额: ${month-expense}')->inline('1')->wrapperComponent('')->id('u:25388228cf03'),], 'id' => 'u:3a2f5f52be8e',],
+                            ])->className('my-1')
+                        ]],
+                    ])]
+                )->style(['position' => 'static', 'display' => 'block',])->wrapperBody('')->id('u:a463a6c561f3'),
+                Tabs::make()
+                    ->id('tabs')
+                    ->tabs([
+                        ['title' => '用户信息', 'body' => [
+                            $this->showForm(),
+                            $this->form(),
+                            Action::make()->label('取消')
+                                ->type('button')
+                                ->level('danger')
+                                ->id('cancel-btn')
+                                ->hidden(true)
+                                ->className('m-2')
+                                ->onEvent([
+                                    'click' => [
+                                        'actions' => [
+                                            ['actionType' => 'hidden', 'componentId' => 'cancel-btn'],
+                                            ['actionType' => 'show', 'componentId' => 'show-form'],
+                                            ['actionType' => 'hidden', 'componentId' => 'edit-form'],
+                                            ['actionType' => 'hidden', 'componentId' => 'submit-btn'],
+                                            ['actionType' => 'show', 'componentId' => 'edit-btn']
+                                        ]
+                                    ],
+                                ])
+                                ->className('float-right mt-4 mr-4'),
+                            Action::make()->label('保存')
+                                ->type('button')
+                                ->id('submit-btn')
+                                ->level('primary')
+                                ->hidden(true)
+                                ->className('m-2')
+                                ->onEvent([
+                                    'click' => [
+                                        'actions' => [
+                                            ['actionType' => 'submit', 'componentId' => 'edit-form'],
+                                        ],
+                                    ]
+                                ])
+                                ->className('float-right mt-4 mr-4'),
+                            Action::make()->label('编辑')
+                                ->type('button')
+                                ->level('primary')
+                                ->id('edit-btn')
+                                ->onEvent([
+                                    'click' => [
+                                        'actions' => [
+                                            ['actionType' => 'hidden', 'componentId' => 'show-form'],
+                                            ['actionType' => 'show', 'componentId' => 'edit-form'],
+                                            ['actionType' => 'show', 'componentId' => 'cancel-btn'],
+                                            ['actionType' => 'show', 'componentId' => 'submit-btn'],
+                                            ['actionType' => 'hidden', 'componentId' => 'edit-btn']
+                                        ]
+                                    ],
+                                ])
+                                ->className('float-right mt-4'),
+                        ]],
+                        ['title' => '消费记录', 'body' => [
+                            Tpl::make()->tpl('内容2')->wrapperComponent('')->inline('')->id('u:9c015c70b296'),
+                        ], 'id' => 'u:59251888f5f1',],
+                        ['title' => '积分明细', 'body' => [
+                            Tpl::make()->tpl('内容')->inline('')->id('u:2301c5b878d1'),
+                        ], 'id' => 'u:c9d2b8796e07',],
+                        ['title' => '签到记录', 'body' => [
+                            Tpl::make()->tpl('内容')->inline(''),
+                        ],],
+                        ['title' => '持有优惠券', 'body' => [
+                            Tpl::make()->tpl('内容')->inline(''),
+                        ],],
+                        ['title' => '余额变动', 'body' => [
+                            Tpl::make()->tpl('内容')->inline(''),
+                        ],],
+                        ['title' => '好友关系', 'body' => [
+                            Tpl::make()->tpl('内容')->inline(''),
+                        ],],
+                    ])->id('u:2f03a1d6c574')->toolbar([])->hidden('')->mountOnEnter('1')->tabsMode('')->showTip(''),
             ]);
     }
 
@@ -304,7 +439,7 @@ class UserController extends AdminController
             'password' => 'required|confirmed|max:32',
             'name' => 'required|string|max:16',
             'phone' => ['required', new PhoneRule],
-            'birthday' => 'date|nullable',
+            'birthday' => 'date|nullable|after:100 years ago|before:today',
             'card_id' => ['string', 'nullable', new IdCardRule],
             'address' => 'string|max:255|nullable',
             'email' => 'email|nullable',
@@ -317,13 +452,52 @@ class UserController extends AdminController
             'state' => 'boolean|nullable',
         ]);
         if ($validator->fails()) {
-            return $this->response()->fail($validator->errors());
+            return $this->response()->fail($validator->errors()->first());
         }
         return $this->autoResponse($this->service->store($request));
+    }
+
+    public function update(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            // 'avatar' => 'string|nullable|max:255',
+            // 'username' => 'required|string|unique:users|max:32',
+            'password' => 'nullable|confirmed|max:32',
+            'name' => 'required|string|max:16',
+            'phone' => ['required', new PhoneRule],
+            'birthday' => 'date|nullable',
+            'card_id' => ['string', 'nullable', new IdCardRule],
+            'address' => 'string|max:255|nullable',
+            'email' => 'email|nullable',
+            'mark' => 'string|max:255|nullable',
+            'level' => 'integer|nullable',
+            'group_id' => 'integer|nullable',
+            // 'label_id' => 'array|nullable',//todo
+            'is_spread' => 'boolean|nullable',
+            'is_promoter' => 'boolean|nullable',
+            'state' => 'boolean|nullable',
+            'money' => 'decimal:2|nullable',
+            'money_status' => 'boolean|nullable',
+            'id' => [
+                'required',
+                Rule::unique('users')->ignore($request->id),
+            ]
+        ]);
+        if ($validator->fails()) {
+            return $this->response()->fail($validator->errors()->first());
+        }
+        return $this->autoResponse($this->service->updateNew($request));
     }
 
     public function show($id)
     {
         return $this->response()->success($this->service->getDetail($id));
     }
+
+    public function edit($id)
+    {
+        return $this->response()->success($this->service->getEditDataNew($id));
+    }
+
+
 }

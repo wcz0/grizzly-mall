@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use App\Models\UserGroup;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
@@ -29,7 +30,7 @@ class UserFactory extends Factory
             'mark' => fake()->text(),
             'group_id' => UserGroup::offset(mt_rand(1, UserGroup::count() - 1))->first()->id,
             'nickname' => fake()->name(),
-            'avatar' => fake()->imageUrl(),
+            'avatar' => fake()->imageUrl(100, 100),
             'phone' => fake()->phoneNumber(),
             'add_ip' => fake()->ipv4(),
             'last_time' => fake()->dateTime(),
@@ -40,11 +41,11 @@ class UserFactory extends Factory
             'exp' => fake()->randomFloat(2, 0, 100000),
             'sign_num' => mt_rand(0, 31),
             'state' => [0, 1, 1][mt_rand(0, 2)],
-            'level' => mt_rand(0, 5),
+            'level' => mt_rand(1, 5),
             'agent_level' => mt_rand(0, 2),
-            'spread_open' => mt_rand(0, 1),
-            'spread_id' => 0, //todo
-            'spread_time' => null, //todo
+            'is_spread' => mt_rand(0, 1),
+            'spread_user' => User::where('is_spread', 1)->count() ? User::where('is_spread', 1)->offset(mt_rand(0, min(User::where('is_spread', 1)->count() - 1, 10000)))->first()->id : 0,
+            'spread_time' => now(),
             'user_type' => ['pc', 'applet', 'h5'][mt_rand(0, 2)],
             'is_promoter' => [0, 0, 1][mt_rand(0, 2)],
             'pay_count' => mt_rand(0, 100),

@@ -15,10 +15,14 @@ return [
     'bootstrap' => app_path('Admin/bootstrap.php'),
 
     'route' => [
-        'prefix'     => 'admin-api',
-        'domain'     => null,
-        'namespace'  => 'App\\Admin\\Controllers',
-        'middleware' => ['admin'],
+        'prefix'               => 'admin-api',
+        'domain'               => null,
+        'namespace'            => 'App\\Admin\\Controllers',
+        'middleware'           => ['admin'],
+        // 不包含额外路由, 配置后, 不会追加新增/详情/编辑页面路由
+        'without_extra_routes' => [
+            '/dashboard',
+        ],
     ],
 
     'auth' => [
@@ -67,7 +71,7 @@ return [
 
     'layout' => [
         // 浏览器标题, 功能名称使用 %title% 代替
-        'title'              => '%title% | OwlAdmin',
+        'title'              => '%title% | Grizzly Mall',
         'header'             => [
             // 是否显示 [刷新] 按钮
             'refresh'      => true,
@@ -89,6 +93,6 @@ return [
          */
         'keep_alive_exclude' => [],
         // 底部信息
-        'footer'             => '© 2023 <a href="https://github.com/wcz0/grizzly-mall" target="_blank">Grizzly Mall</a>',
+        'footer'             => '<a href="https://github.com/wcz0/grizzly-mall" target="_blank">Grizzly Mall</a>',
     ],
 ];

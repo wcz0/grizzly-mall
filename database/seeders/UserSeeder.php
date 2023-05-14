@@ -13,15 +13,14 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        ini_set('memory_limit', '112048M');
         $a = 1;
         do {
             $data = User::factory()
-                ->count(1000)
+                ->count(10)
                 ->make();
 
             User::insert($data->toArray());
             $a++;
-        } while ($a <= 10);
+        } while ($a <= 1000);
     }
 }
