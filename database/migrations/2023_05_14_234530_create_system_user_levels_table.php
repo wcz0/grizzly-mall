@@ -14,16 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::create('system_user_levels', function (Blueprint $table) {
-            $table->increments('id');
+            $table->smallIncrements('id');
             $table->unsignedInteger('mer_id')->default(new \Illuminate\Database\Query\Expression('0'));
             $table->string('name')->default('');
             $table->decimal('money', 8,2)->default(new \Illuminate\Database\Query\Expression('0'));
             $table->date('valid_date');
             $table->unsignedTinyInteger('is_fprever')->default(new \Illuminate\Database\Query\Expression('0'));
             $table->unsignedTinyInteger('is_pay')->default(new \Illuminate\Database\Query\Expression('0'));
-            $table->unsignedTinyInteger('state')->default(new \Illuminate\Database\Query\Expression('1'));
+            $table->unsignedTinyInteger('is_show')->default(new \Illuminate\Database\Query\Expression('1'));
             $table->unsignedInteger('grade')->default(new \Illuminate\Database\Query\Expression('1'));
-            $table->decimal('discount')->default('8,2');
+            $table->decimal('discount', 8,2)->default(0);
             $table->string('image')->default('');
             $table->string('icon')->default('');
             $table->text('explain')->nullable();
