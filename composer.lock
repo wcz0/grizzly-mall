@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ae2d105ac5f33fde0a10ebf9ab1a359a",
+    "content-hash": "fb0e89ed74901578cbde1c518fe700e6",
     "packages": [
         {
             "name": "brick/math",
@@ -3795,16 +3795,16 @@
         },
         {
             "name": "slowlyo/owl-admin",
-            "version": "v2.5.4",
+            "version": "v2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Slowlyo/owl-admin.git",
-                "reference": "2b01ea60117249b82953ab7c86a620f1961860a5"
+                "reference": "9ced38877cc45c6643751ebbb80ee562fa62bd7b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Slowlyo/owl-admin/zipball/2b01ea60117249b82953ab7c86a620f1961860a5",
-                "reference": "2b01ea60117249b82953ab7c86a620f1961860a5",
+                "url": "https://api.github.com/repos/Slowlyo/owl-admin/zipball/9ced38877cc45c6643751ebbb80ee562fa62bd7b",
+                "reference": "9ced38877cc45c6643751ebbb80ee562fa62bd7b",
                 "shasum": ""
             },
             "require": {
@@ -3824,7 +3824,7 @@
             },
             "autoload": {
                 "files": [
-                    "src/Libs/helpers.php"
+                    "src/Support/helpers.php"
                 ],
                 "psr-4": {
                     "Slowlyo\\OwlAdmin\\": "src/"
@@ -3846,13 +3846,14 @@
             "keywords": [
                 "OwlAdmin",
                 "admin",
+                "amis",
                 "laravel"
             ],
             "support": {
                 "issues": "https://github.com/Slowlyo/owl-admin/issues",
-                "source": "https://github.com/Slowlyo/owl-admin/tree/v2.5.4"
+                "source": "https://github.com/Slowlyo/owl-admin/tree/v2.6.0"
             },
-            "time": "2023-05-15T00:36:47+00:00"
+            "time": "2023-06-06T14:31:48+00:00"
         },
         {
             "name": "swoole/ide-helper",

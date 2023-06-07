@@ -15,7 +15,7 @@
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
         "orangehill/iseed": "^3.0",
-        "slowlyo/owl-admin": "^2.4",
+        "slowlyo/owl-admin": "^2.6",
         "tymon/jwt-auth": "^2.0"
     },
     "require-dev": {
